@@ -56,6 +56,7 @@ export default function Table(props: TableProps) {
               <p className="text-gray-600 font-light">No transactions</p>
             </div>
           }
+          className="p-4"
         >
           {/* //If selectable is enabled// */}
           {selectable && (
