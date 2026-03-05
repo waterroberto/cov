@@ -1,12 +1,13 @@
+'use client'
+
 import { investment_plans } from '@/static';
 import Link from 'next/link';
-import React from 'react';
-import Button from './Global/Button';
-import { useState } from "react";
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { DrawerDialogDemo } from './chad/DrawerDialogue';
+import Button from './Global/Button';
 import Modal from './Global/Modal';
 import TextInput from './Global/TextInput';
-import toast from 'react-hot-toast';
 
 export default function InvestmentPlans({
   authenticated = false,
@@ -14,7 +15,6 @@ export default function InvestmentPlans({
   authenticated?: boolean;
 }) {
     const [isOpenDialog, setIsOpenDialog] = useState(false)
-    const [plan, setPlan] = useState<any | null>(null)
     const [value, setValue] = useState("")
 
 
@@ -44,15 +44,17 @@ export default function InvestmentPlans({
       {investment_plans.map((investment) => (
         <div
           key={investment.name}
-          className='p-6 rounded-xl bg-primary border border-blue-100 text-gray-50'
+          className='rounded-xl bg-primary text-gray-50 border border-primary'
           data-aos='fade-up'
         >
+          <div className="p-6">
           <p className='font-semibold capitalize text-xl mb-1'>
             {investment.name}
           </p>
-          <p className='font-semibold capitalize text-sm mb-8'>
+          <p className='font-semibold capitalize text-sm'>
             Start your journey with the entry-level Invest & Earn.
           </p>
+          </div>
 
           {/* <div className='grid grid-cols-2 gap-4 my-4'>
             <div>
@@ -68,11 +70,15 @@ export default function InvestmentPlans({
               </p>
             </div>
           </div> */}
-          <div className='flex items-center gap-8 justify-between text-sm my-4 font-medium'>
-            <span>Interest:</span>
-            <span>
-              <span className='text-neutral'>{investment.interest} </span>
-            </span>
+          <div className="flex flex-col gap-4 items-center justify-center bg-white mb-4 p-6 text-gray-600">
+          <div className='text-sm'>
+            {investment.interest} Interest earned
+          </div>
+          <div className='text-sm'>
+            Deposit Return
+          </div>
+          <div className='text-sm'>
+            {investment.percentage}% profit percentage
           </div>
 
           {/* <div className='flex items-center gap-8 justify-between text-sm my-4 font-medium'>
@@ -82,21 +88,9 @@ export default function InvestmentPlans({
               days
             </span>
           </div> */}
-
-          <div className='flex items-center gap-8 justify-between text-sm my-4 font-medium'>
-            <span>Deposit Return:</span>
-            <span>
-              <span className='text-neutral'>Yes </span>
-            </span>
           </div>
 
-          <div className='flex items-center gap-8 justify-between text-sm my-4 font-medium'>
-            <span>Profit Percentage:</span>
-            <span>
-              <span className='text-neutral'>{investment.percentage}%</span>
-            </span>
-          </div>
-
+          <div className="px-6 pb-6">
           {authenticated ? (
             <Button onClick={() => {
                toast.success("contact support for upgrade of account at support@capitalonlineventures.com")
@@ -106,6 +100,7 @@ export default function InvestmentPlans({
               <Button block>Choose plan</Button>
             </Link>
           )}
+          </div>
         </div>
       ))}
     </div>

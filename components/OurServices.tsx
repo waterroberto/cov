@@ -43,7 +43,7 @@ export default function OurServices() {
   return (
     <section
       id='services'
-      className='p-4 sm:px-8 lg:px-16 xl:px-32 py-16 items-center bg-gray-950'
+      className='p-4 sm:px-8 lg:px-16 xl:px-32 py-16 items-center bg-gray-800'
     >
       <div className='mb-16 flex flex-col items-center justify-center mx-auto max-w-2xl'>
         <span className='mb-4 text-sm p-2 px-4 inline-block border border-gray-600 rounded-full text-gray-50'>
@@ -58,10 +58,10 @@ export default function OurServices() {
         {features.map((feature) => (
           <div
             key={feature.title}
-            className='flex items-center gap-4 bg-primary_3 p-8 rounded-2xl border border-gray-100'
+            className='flex items-center gap-4 bg-primary_3 p-8 rounded-2xl border border-gray-500'
             data-aos='fade-up'
           >
-            <div className='h-20 w-20 border border-primary rounded-2xl text-neutral text-4xl flex items-center justify-center text-gray-50'>
+            <div className='h-20 w-20 border border-chart-2 rounded-2xl text-neutral text-4xl flex items-center justify-center text-chart-2'>
               {feature.icon}
             </div>
             <div className='flex-1 text-gray-50'>

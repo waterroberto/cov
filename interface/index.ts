@@ -176,6 +176,7 @@ export type TableProps = {
   sortMode?: 'single' | 'multiple';
   scrollable?: boolean;
   loading?: boolean;
+  hidePagination?: boolean;
   desktopOnly?: boolean;
   dataKey?: string;
   children?: React.ReactNode;

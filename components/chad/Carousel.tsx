@@ -1,7 +1,8 @@
 "use client"
-import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
+import * as React from "react"
 
+import bg from '@/assets/hm-agricu-home.jpg'
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -10,7 +11,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import bg from '@/assets/hm-agricu-home.jpg';
+import { BsStar } from "react-icons/bs"
+import { FaStar } from "react-icons/fa"
 
 interface Props {
   items: {name: string, title: string, subTitle: string}[]
@@ -23,44 +25,59 @@ export function CarouselPlugin({items}:Props ) {
 
   return (
     <div
-      //   style={{
-      //   background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${bg.src}) no-repeat center center/cover`,
-      // }}
-      className=" p-4 bg-[#f3f0f0]"
+   className="p-4 sm:px-8 lg:px-16 xl:px-32 py-16 items-center bg-white"
     >
-
-    <h2 className="text-2xl sm:text-4xl font-semibold sm:font-bold text-primary py-10 text-center">
-      What our Investor Say
-    </h2>
+           <div className=" mb-6 flex flex-col items-center justify-center">
+              <span className="mb-4 text-xs p-2 px-4 flex items-center justify-center gap-2 border border-dark rounded-full text-dark w-fit">
+                <BsStar /> Trusted by thousands of customers
+              </span>
+              <p className="text-primary text-center text-2xl md:text-4xl lg:text-5xl font-bold gradient-text">
+                What our Investors Say
+              </p>
+              <p className="sm:text-lg text-center text-gray-600 my-4 max-w-3xl mx-auto">
+       Trust in us to
+                safeguard your financial future and investment with unwavering
+                commitment
+              </p>
+            </div>
+      
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-xl items-center justify-center mx-auto"
+      className="w-full max-w-6xl items-center justify-center mx-auto"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}    
     >
       <CarouselContent className="">
-        {items.map((_, index) => (
-          <CarouselItem key={index} className="">
-            <div className="p-1">
+        {items.map((item, index) => (
+          <CarouselItem key={index} 
+            className="md:basis-1/2 lg:basis-1/3 mb-8"
+          >
               <Card>
-                <CardContent className="flex flex-col aspect-square items-center justify-center text-center p-6 gap-7 max-h-[400px]">
-                  <div className=" flex flex-col gap-2.5">
-                    <h4 className="text-2xl font-semibold">{_.name }</h4>
-                    <p className="text-lg font-light text-[#0078FF]">{_.title }</p>
+              <CardContent className="flex flex-col aspect-square items-center justify-center text-center p-6 gap-6 max-h-[300px]">
+                  <div className="flex flex-col gap-2.5 items-center justify-center">
+                    <h4 className="text-xl font-bold">{item.name }</h4>
+                    <p className="font-medium text-[#0078FF]">{item.title}</p>
+                      <div className="flex items-center gap-2">
+                    {[1, 2, 3, 4, 5]?.map((star, inx) => (
+                      <FaStar
+                        key={star}
+                        color="#ffb403"
+                      />
+                    ))}
+                  </div>
                   </div>
                   <div className=" my-4">
-                    <p className=" text-lg leading-7 font-medium">
-                      {_.subTitle}
+                    <p className="leading-7 text-gray-600">
+                      {item.subTitle}
                     </p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious  className="size-12"/>
+      <CarouselNext className="size-12"/>
     </Carousel>
       </div>
   )
