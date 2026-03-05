@@ -30,7 +30,7 @@ export default function TradingViewChart() {
     s = "gold"
   }
   return (
-    <div className='my-4'>
+    <div className=''>
       <AdvancedChart
         widgetProps={{
           theme: 'dark',
