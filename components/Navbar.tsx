@@ -4,8 +4,8 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { CgMenu } from 'react-icons/cg';
 // import TradingViewTicker from './Dashboard/Widgets/TradingViewTicker';
-import Button from './Global/Button';
 import { FaChevronDown } from 'react-icons/fa';
+import Button from './Global/Button';
 // import Logo from './Global/Logo';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BiX } from 'react-icons/bi';
@@ -14,11 +14,11 @@ import Logo from './Global/Logo';
 
 const links: LinkProps [] = [
   // { name: 'home', url: '/' },
-  { name: 'why CAP VENTURES', url: '/whyus' },
+  { name: 'Why Us', url: '/whyus' },
   // { name: 'service', url: '/contact' },
   { name: 'contact', url: '/contact' },
   {
-    name: 'markets',
+    name: 'Markets',
     url: '#',
     children: [
       { name: 'Forex', url: '/markets/forex'},  
@@ -193,10 +193,11 @@ const Navbar = () => {
 
 
   return (
-    <header className='bg-primary w-full fixed backdrop-blur-md shadow-sm top-0  z-50'>
+
+         <header className="p-6 w-[95%] md:bg-primary-5 flex items-center justify-between lg:px-8 fixed top-4 z-50 max-w-4xl rounded-full left-1/2 -translate-x-1/2 bg-gray-900/50 backdrop-blur-lg"> 
       {showMobileNav &&  <div className='absolute sm:hidden top-0 left-0 h-screen w-screen bg-primary z-5 inset-0 opacity-50'></div> }
    
-      <nav className=' p-4 border-b border-b-gray-100 flex items-center justify-between w-full gap-4 md:gap-6 z-10'>
+      <nav className='flex items-center justify-between w-full gap-4 md:gap-6 z-10'>
         <Link href='/'>
           <Logo width={120} height={120} />
         </Link>

@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
 import ClientProvider from "@/components/Providers/ClientProvider";
+import type { Metadata } from "next";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/lara-light-cyan/theme.css';
+import "./globals.css";
 
 
 // Modern Premium Fintech Font - Plus Jakarta Sans
@@ -39,9 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <head>
-          
-        </head>
+
       <body
         className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased`}
         >

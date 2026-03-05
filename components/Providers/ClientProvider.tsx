@@ -3,7 +3,7 @@ import { AuthContextProvider } from '@/context/AuthContext';
 import { UserDataContextProvider } from '@/context/UserDataContext';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Script from 'next/script';
+
 // import Script from 'next/script';
 import React, { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -15,9 +15,7 @@ export default function ClientProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    AOS.init({
-      once: true,
-    });
+    AOS.init();
   }, []);
 
   return (

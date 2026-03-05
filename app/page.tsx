@@ -1,19 +1,25 @@
 import AgricHomeSection from '@/components/AgricHomeSection';
 import { CarouselPlugin } from '@/components/chad/Carousel';
-import ContactUs from '@/components/ContactUs';
+// import ContactUs from '@/components/ContactUs';
 // import TradingViewCryptoMarket from '@/components/Dashboard/Widgets/TradingViewCryptoMarket';
 // import TradingViewTimeline from '@/components/Dashboard/Widgets/TradingViewTimeline';
 import Footer from '@/components/Footer';
 import Meta from '@/components/Global/Meta';
-import Hero from '@/components/Home/Hero';
+
+import HeroSection from '@/components/Home/HeroSection';
 import HomeWorkEthics from '@/components/Home/HomeWorkEthics';
+import PlatformFeatures from '@/components/Home/PlatformFeatures';
+import RecentTransactions from '@/components/Home/RecentTransactions';
 import TradingPlans from '@/components/Home/TradingPlans';
 import WhatIsForex from '@/components/Home/WhatIsForex';
 import WhyChooseUs from '@/components/Home/WhyChooseUs';
-import HowItWorks from '@/components/HowItWorks';
+import WhyChooseUs2 from '@/components/Home/WhyChooseUs2';
+// import HowItWorks from '@/components/HowItWorks';
 import Navbar from '@/components/Navbar';
 import OurServices from '@/components/OurServices';
 import StepsToRegister from '@/components/StepsToRegister';
+import TradingViewTicker from '@/components/Widgets/TradingViewTicker';
+import TradingViewTimeline from '@/components/Widgets/TradingViewTimeline';
 import WorldOpportunities from '@/components/WorldOpportunities';
 
 const testimonies = [
@@ -66,19 +72,24 @@ export default function Home() {
       <Meta />
       <Navbar />
       <main>
-        <Hero />
-        <OurServices />
-        <WhatIsForex />
-        <WorldOpportunities />
+        <HeroSection />
+        <TradingViewTicker/>
+        <WhyChooseUs2 />
         <WhyChooseUs />
+        <PlatformFeatures/>
+        <TradingPlans/>
+        <WorldOpportunities />
+        {/* <OurServices /> */}
+        <RecentTransactions/>
         <AgricHomeSection />
-        <HowItWorks />
+        {/* <WhatIsForex /> */}
+        {/* <HowItWorks /> */}
         <CarouselPlugin items={testimonies} />
-
         {/* <HomeWorkEthics /> */}
         {/* <TradingPlans /> */}
         {/* <ContactUs /> */}
         <StepsToRegister />
+        <TradingViewTimeline/>
         <Footer />
       </main>
     </>

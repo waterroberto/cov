@@ -1,16 +1,17 @@
+import whyUsImage from '@/assets/hm-whyus.webp';
+import { AccordionDemo } from '@/components/chad/Accordion';
 import Footer from '@/components/Footer';
 import Meta from '@/components/Global/Meta';
 import Hero from '@/components/Home/Hero';
-import Navbar from '@/components/Navbar';
-import Image from 'next/image';
-import React from 'react'
-import whyUsImage from '@/assets/hm-whyus.webp'
-import { FaGlobeAfrica } from 'react-icons/fa';
-import { AwardIcon, CheckCircle2Icon, DollarSign, Globe } from 'lucide-react';
-import { MdSpeed } from 'react-icons/md';
-import { AccordionDemo } from '@/components/chad/Accordion';
-import OurServices from '@/components/OurServices';
 import WhyChooseUs from '@/components/Home/WhyChooseUs';
+import WhyChooseUs2 from '@/components/Home/WhyChooseUs2';
+import Navbar from '@/components/Navbar';
+import OurServices from '@/components/OurServices';
+import { AwardIcon, CheckCircle2Icon, DollarSign, Globe } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
+import { FaGlobeAfrica } from 'react-icons/fa';
+import { MdSpeed } from 'react-icons/md';
 
 const lists = [
   {
@@ -89,12 +90,14 @@ export default function WhyUsPage() {
         </section>
 
         <section className='w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12'>
-          <div className='w-full lg:w-10/12 mx-auto grid grid-cols-3 md:grid-cols-5 gap-8'>
+          <div className='w-full lg:w-10/12 mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
             {
               lists.map((data, index) => (
-              <div key={index} className='group flex flex-col gap-3 justify-center items-center cursor-pointer'>
+                <div key={index} className='group flex flex-col gap-3 justify-center items-center cursor-pointer'>
+                  <div className="text-3xl">
                 {data.icon}
-                <p className="text-xs font-light text-center text-neutral-500 group-hover:text-secondary">{data.label}</p>
+                  </div>
+                <p className="text-lg text-center text-neutral-500">{data.label}</p>
 
               </div>
 
@@ -104,7 +107,7 @@ export default function WhyUsPage() {
           </div>
 
         </section>
-        
+        <WhyChooseUs2 />
         <OurServices/>
         
       <section
@@ -153,6 +156,7 @@ export default function WhyUsPage() {
             <p className=' text-lg font-bold'>John Chriswood</p>
           </div>
         </section>
+          
           <WhyChooseUs />
         <section className='w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12'>
           <AccordionDemo data={FaqData} />
