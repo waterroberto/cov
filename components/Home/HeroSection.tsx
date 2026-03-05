@@ -5,6 +5,7 @@ import heroVector from "@/public/images/vector.svg";
 
 import blur2 from "@/public/images/blur-2.png";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -69,8 +70,8 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="max-w-xl mx-auto relative">
-          <img
-            src={heroSlide1.src}
+          <Image
+            src={heroSlide1}
             alt="Hero image - woman smiling and holding credit card"
             width={500}
             height={500}
@@ -78,8 +79,8 @@ export default function HeroSection() {
             data-aos="fade-right"
           />
 
-          <img
-            src={heroVector.src}
+          <Image
+            src={heroVector}
             alt="Hero vector "
             width={500}
             height={500}
@@ -88,9 +89,9 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="animate-pulse z-[-1] absolute top-0 left-16">
-        <img
-          src={blur2.src}
-          alt="Hero vector "
+        <Image
+          src={blur2}
+          alt="Hero background blur"
           width={500}
           height={500}
           className=" opacity-40"

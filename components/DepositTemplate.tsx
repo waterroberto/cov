@@ -19,7 +19,7 @@ export default function DepositEmail({ name, amount, transactionId, date }:{name
           <p class="text">Your funds are now available in your account for investment or withdrawal.</p>
           <hr />
           <p class="footer">If you have any questions, please contact our support team.</p>
-          <p class="footer">Best regards,<br />The HMAgrivest Team</p>
+          <p class="footer">Best regards,<br />The CapVentures Team</p>
         </div>
       </body>
     </html>

@@ -27,7 +27,7 @@ export default function NewPassword() {
     if(!userId){
       router.replace('/auth/reset-password')
     }
-  }, [])
+  }, [router])
 
   const formik = useFormik({
     initialValues: {

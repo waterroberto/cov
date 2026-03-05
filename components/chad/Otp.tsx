@@ -36,15 +36,13 @@ export function InputOTPDemo({ maxLength, onChange, onValidate }: InputOTPDemoPr
   return (
     <div className="flex flex-col items-center gap-2">
       <InputOTP maxLength={maxLength} value={otp} onChange={handleChange}>
-        <InputOTPGroup className=" gap-2">
+        <InputOTPGroup className="gap-1 sm:gap-2">
           {Array.from({ length: maxLength }).map((_, index) => (
             <InputOTPSlot   
-            key={index} 
-            index={index} 
-            className="w-14 h-14 text-2xl border-2 border-gray-300 rounded-lg text-center"
-
+              key={index} 
+              index={index} 
+              className="w-10 h-10 sm:w-14 sm:h-14 text-lg sm:text-2xl border-2 border-slate-600 bg-slate-800/50 text-white rounded-lg text-center transition-all duration-300 focus:border-blue-500 outline-none"
             />
-            
           ))}
         </InputOTPGroup>
       </InputOTP>

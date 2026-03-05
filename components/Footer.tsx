@@ -83,7 +83,7 @@ const Footer = () => {
             Website:  
             <a className=' underline ml-2' href="https://www.capitalonlineventures.com">www.capitalonlineventures.com</a>
           </p>
-          <p> &copy; <span>HMAgrivest ,</span> {new Date().getFullYear()}</p>
+          <p> &copy; <span>CapVentures ,</span> {new Date().getFullYear()}</p>
         </div>
     </footer>
   );

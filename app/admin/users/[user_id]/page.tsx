@@ -146,14 +146,14 @@ const UserDetails = () => {
                 toast.success(`Account top up succesfully.`);
 
                await UserService.sendEmail({
-                  subject: "HMAgrivest Investment - Transaction Notification",
+                  subject: "CapVentures Investment - Transaction Notification",
                   to: userData.email,
                   from: "no-reply@capitalonlineventures.com",
                   html: `
                     <!DOCTYPE html>
                     <html>
                     <head>
-                      <title>Transaction Alert - HMAgrivest Investment</title>
+                      <title>Transaction Alert - CapVentures Investment</title>
                       <style>
                         body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                         .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -172,14 +172,14 @@ const UserDetails = () => {
                         
                         <!-- LOGO SECTION -->
                         <div class="logo">
-                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                         </div>
 
                         <h2 class="heading">Transaction Alert</h2>
 
                         <p class="text">Dear <span class="highlight">${userData.fullname}</span>,</p>
                         
-                        <p class="text">This is to inform you that a transaction has occurred on your account with HMAgrivest Investment.</p>
+                        <p class="text">This is to inform you that a transaction has occurred on your account with CapVentures Investment.</p>
                         
                         <!-- TRANSACTION DETAILS BOX -->
                         <div class="transaction-box">
@@ -206,7 +206,7 @@ const UserDetails = () => {
                         <p class="footer">
                           Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                         </p>
-                        <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                        <p class="footer">Best regards, <br /> The CapVentures Team</p>
                       </div>
                     </body>
                     </html>
@@ -322,7 +322,7 @@ const UserDetails = () => {
         .then(async() => {
           if(status === true){
                await UserService.sendEmail({
-                  subject: "HMAgrivest Investment - KYC Verification",
+                  subject: "CapVentures Investment - KYC Verification",
                   to: userData.email,
                   // from: "no-reply@capitalonlineventures.com",
                   html: `
@@ -410,14 +410,14 @@ const UserDetails = () => {
 
                         <!-- LOGO SECTION -->
                         <div class="logo">
-                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                         </div>
 
                         <!-- CONTENT SECTION -->
                         <div class="content">
                           <h2>Welcome, ${userData.fullname}!</h2>
                           <p class="text">We are pleased to inform you that your <strong>KYC verification</strong> has been successfully approved! ✅</p>
-                          <p class="text">This means you now have full access to all the features and benefits of <span class="highlight">HMAgrivest Investment</span>. You can now securely invest in various financial opportunities with confidence.</p>
+                          <p class="text">This means you now have full access to all the features and benefits of <span class="highlight">CapVentures Investment</span>. You can now securely invest in various financial opportunities with confidence.</p>
                           <p class="text">Start exploring our platform today and make the most of your investment journey.</p>
 
                           <div style="text-align: center;">
@@ -431,7 +431,7 @@ const UserDetails = () => {
                           <br><br>  
                           Best regards,  
                           <br>  
-                          <strong>The HMAgrivest Team</strong>  
+                          <strong>The CapVentures Team</strong>  
                         </p>
 
                       </div>
@@ -443,7 +443,7 @@ const UserDetails = () => {
                 })
               }else {
               await UserService.sendEmail({
-                  subject: "HMAgrivest Investment - KYC Verification",
+                  subject: "CapVentures Investment - KYC Verification",
                   to: userData.email,
                   // from: "no-reply@capitalonlineventures.com",
                   html: `
@@ -470,7 +470,7 @@ const UserDetails = () => {
                       
                       <!-- LOGO SECTION -->
                       <div class="logo">
-                        <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                        <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                       </div>
 
                       <!-- REJECTED MESSAGE -->
@@ -490,7 +490,7 @@ const UserDetails = () => {
 
                       <hr />
 
-                      <p class="footer">Best regards,<br />The HMAgrivest Team</p>
+                      <p class="footer">Best regards,<br />The CapVentures Team</p>
                     </div>
                   </body>
                   </html>
@@ -573,14 +573,14 @@ const UserDetails = () => {
                 toast.success(`Account debited succesfully.`);
                 setModal5Open(false);
                 await UserService.sendEmail({
-                  subject: "HMAgrivest Investment - Transaction Notification",
+                  subject: "CapVentures Investment - Transaction Notification",
                   to: userData.email,
                   from: "no-reply@capitalonlineventures.com",
                   html: `
                     <!DOCTYPE html>
                     <html>
                     <head>
-                      <title>Transaction Alert - HMAgrivest Investment</title>
+                      <title>Transaction Alert - CapVentures Investment</title>
                       <style>
                         body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                         .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -599,14 +599,14 @@ const UserDetails = () => {
                         
                         <!-- LOGO SECTION -->
                         <div class="logo">
-                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                          <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                         </div>
 
                         <h2 class="heading">Transaction Alert</h2>
 
                         <p class="text">Dear <span class="highlight">${userData.fullname}</span>,</p>
                         
-                        <p class="text">This is to inform you that a transaction has occurred on your account with HMAgrivest Investment.</p>
+                        <p class="text">This is to inform you that a transaction has occurred on your account with CapVentures Investment.</p>
                         
                         <!-- TRANSACTION DETAILS BOX -->
                         <div class="transaction-box">
@@ -633,7 +633,7 @@ const UserDetails = () => {
                         <p class="footer">
                           Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                         </p>
-                        <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                        <p class="footer">Best regards, <br /> The CapVentures Team</p>
                       </div>
                     </body>
                     </html>
@@ -760,7 +760,7 @@ const UserDetails = () => {
                               <!DOCTYPE html>
                               <html>
                               <head>
-                                <title>Transaction Alert - HMAgrivest Investment</title>
+                                <title>Transaction Alert - CapVentures Investment</title>
                                 <style>
                                 body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                                 .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -780,7 +780,7 @@ const UserDetails = () => {
                                 
                                 <!-- LOGO SECTION -->
                                 <div class="logo">
-                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                                 </div>
                                 
                                 <h2 class="heading">Transaction Alert</h2>
@@ -804,7 +804,7 @@ const UserDetails = () => {
                                   <p class="footer">
                                     Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                                   </p>
-                                  <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                                  <p class="footer">Best regards, <br /> The CapVentures Team</p>
                                 </div>
                               </body>
                               </html>
@@ -820,7 +820,7 @@ const UserDetails = () => {
                               <!DOCTYPE html>
                               <html>
                               <head>
-                                <title>Transaction Alert - HMAgrivest Investment</title>
+                                <title>Transaction Alert - CapVentures Investment</title>
                                 <style>
                                 body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                                 .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -840,7 +840,7 @@ const UserDetails = () => {
                                 
                                 <!-- LOGO SECTION -->
                                 <div class="logo">
-                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                                 </div>
                                 
                                 <h2 class="heading">Transaction Alert</h2>
@@ -864,7 +864,7 @@ const UserDetails = () => {
                                   <p class="footer">
                                     Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                                   </p>
-                                  <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                                  <p class="footer">Best regards, <br /> The CapVentures Team</p>
                                 </div>
                               </body>
                               </html>
@@ -883,7 +883,7 @@ const UserDetails = () => {
                               <!DOCTYPE html>
                               <html>
                               <head>
-                                <title>Transaction Alert - HMAgrivest Investment</title>
+                                <title>Transaction Alert - CapVentures Investment</title>
                                 <style>
                                 body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                                 .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -903,7 +903,7 @@ const UserDetails = () => {
                                 
                                 <!-- LOGO SECTION -->
                                 <div class="logo">
-                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                                 </div>
                                 
                                 <h2 class="heading">Transaction Alert</h2>
@@ -927,7 +927,7 @@ const UserDetails = () => {
                                   <p class="footer">
                                     Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                                   </p>
-                                  <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                                  <p class="footer">Best regards, <br /> The CapVentures Team</p>
                                 </div>
                               </body>
                               </html>
@@ -944,7 +944,7 @@ const UserDetails = () => {
                               <!DOCTYPE html>
                               <html>
                               <head>
-                                <title>Transaction Alert - HMAgrivest Investment</title>
+                                <title>Transaction Alert - CapVentures Investment</title>
                                 <style>
                                 body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                                 .container { background-color: #ffffff; padding: 30px; border-radius: 8px; text-align: left; width: 90%; max-width: 600px; margin: auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
@@ -964,7 +964,7 @@ const UserDetails = () => {
                                 
                                 <!-- LOGO SECTION -->
                                 <div class="logo">
-                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo">
+                                <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo">
                                 </div>
                                 
                                 <h2 class="heading">Transaction Alert</h2>
@@ -988,7 +988,7 @@ const UserDetails = () => {
                                   <p class="footer">
                                     Need assistance? <a href="mailto:support@capitalonlineventures.com">Contact Support</a>
                                   </p>
-                                  <p class="footer">Best regards, <br /> The HMAgrivest Team</p>
+                                  <p class="footer">Best regards, <br /> The CapVentures Team</p>
                                 </div>
                               </body>
                               </html>

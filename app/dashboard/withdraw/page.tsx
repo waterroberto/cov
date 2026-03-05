@@ -336,7 +336,7 @@ function Withdraw() {
               {/* Info Alert */}
               <div className='rounded-2xl bg-blue-50 border-2 border-blue-200 p-4'>
                 <p className='text-blue-900 text-sm font-medium'>
-                  ℹ️ Withdrawals are processed within 24-48 hours. You'll receive an email confirmation.
+                  ℹ️ Withdrawals are processed within 24-48 hours. You&apos;ll receive an email confirmation.
                 </p>
               </div>
 

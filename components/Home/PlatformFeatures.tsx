@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
-
 import loanIcon from "@/public/assets/icons/borrow.svg";
 import insuranceIcon from "@/public/assets/icons/insure.svg";
 import savingsIcon from "@/public/assets/icons/save.svg";
 import transactionIcon from "@/public/assets/icons/transaction.svg";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
+import React, { useMemo } from "react";
 import { BsArrowRight, BsStar } from "react-icons/bs";
 import Button from "../Global/Button";
 
@@ -13,24 +13,24 @@ export default function PlatformFeatures() {
   const features = useMemo(() => {
     return [
       {
-        icon: transactionIcon.src,
+        icon: transactionIcon,
         title: "Instant Transfer",
         description:
           "Cutting-edge tools ensuring your funds reach their destination in no time.",
       },
       {
-        icon: loanIcon.src,
+        icon: loanIcon,
         title: "Investment Programmes",
         description:
           "Multiple investment opportunities, starting as low as $100.",
       },
       {
-        icon: savingsIcon.src,
+        icon: savingsIcon,
         title: "International Payments",
         description: "Send money across borders with ease and confidence.",
       },
       {
-        icon: insuranceIcon.src,
+        icon: insuranceIcon,
         title: "Platform Security",
         description:
           "Investments are secured by our robust insurance policies.",
@@ -61,7 +61,12 @@ export default function PlatformFeatures() {
             data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
           >
             {/*  */}
-            <img src={feature.icon} width={100} height={100} />
+            <Image 
+              src={feature.icon} 
+              width={100} 
+              height={100} 
+              alt={`${feature.title} icon`} 
+            />
             <p className="text-xl font-semibold text-gray-700 text-center">
               {feature.title}
             </p>

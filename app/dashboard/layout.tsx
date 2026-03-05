@@ -22,7 +22,9 @@ export default function DashboardLayout({
   const handleToggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   useEffect(() => {
-    if (!checkingStatus && !isLoggedIn) router.replace('/auth/login');
+    if (!checkingStatus && !isLoggedIn) {
+        router.replace('/auth/login');
+    }
   }, [checkingStatus, isLoggedIn, router]);
 
   if (checkingStatus) {
@@ -31,6 +33,16 @@ export default function DashboardLayout({
         <Loader />
       </div>
     );
+  }
+
+  if(userData?.kyc_pending === true && userData?.kyc_submitted === true) {
+    router.replace('/auth/login');
+    return;
+  }
+
+  if(userData?.isBlocked) {
+    router.replace('/auth/login');
+    return;
   }
 
   if (!checkingStatus && isLoggedIn && !fetchingData && userData)

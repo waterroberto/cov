@@ -13,6 +13,7 @@ import { FaCheckCircle, FaTimesCircle, FaClock } from 'react-icons/fa';
 import Button from '../Global/Button';
 import Modal from '../Global/Modal';
 import Table from './Table';
+import Image from 'next/image';
 
 export default function TransactionHistory({
   data,
@@ -228,9 +229,11 @@ export default function TransactionHistory({
                 </a>
               </div>
               <div className='mt-2 rounded-xl overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center p-2'>
-                <img
+                <Image
                   src={typeof (activeTransaction as any).proofOfPayment === 'string' ? (activeTransaction as any).proofOfPayment : URL.createObjectURL((activeTransaction as any).proofOfPayment as File)}
                   alt="Proof of Payment"
+                  width={500}
+                  height={300}
                   className='max-w-full h-auto object-contain max-h-[300px] rounded-lg shadow-sm'
                 />
               </div>

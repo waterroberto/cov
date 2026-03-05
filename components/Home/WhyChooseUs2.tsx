@@ -1,6 +1,7 @@
 import customerSupport from "@/public/images/customer-support.png";
 import hiddenImage from "@/public/images/hidden.png";
 import clsx from "clsx";
+import Image from "next/image";
 import React, { useMemo } from "react";
 
 export default function WhyChooseUs() {
@@ -15,13 +16,13 @@ export default function WhyChooseUs() {
         title: "Zero Fees",
         subtitle: "No hidden fees.",
         description: `Enjoy investments with no fees. No Surprises, No Hidden Costs - Transparency is the Foundation of Our Commitment to You.`,
-        image: hiddenImage.src,
+        image: hiddenImage,
       },
       {
         title: "24/7",
         subtitle: "Access to funds and customer support.",
         description: `Enjoy Round-the-Clock Access to Your Funds and Dedicated Customer Support Anytime, Anywhere.`,
-        image: customerSupport.src,
+        image: customerSupport,
       },
     ];
   }, []);
@@ -63,7 +64,14 @@ export default function WhyChooseUs() {
               </div>
 
               {/* Image */}
-              {why.image && <img src={why.image} width={200} height={200} />}
+              {why.image && (
+                <Image 
+                  src={why.image} 
+                  width={200} 
+                  height={200} 
+                  alt={`${why.title} illustration`} 
+                />
+              )}
             </div>
           </div>
         ))}

@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
           Why Choose HM Agrivest
         </p>
         <p className="sm:text-lg text-center text-gray-600 my-4 max-w-3xl mx-auto">
-          At HMAgrivest, we believe in the enduring power of strength and
+          At CapVentures, we believe in the enduring power of strength and
           security. Every transaction is fortified with cutting-edge protection,
           ensuring your wealth is as safe as it is accessible. Trust in us to
           safeguard your financial future and investment with unwavering

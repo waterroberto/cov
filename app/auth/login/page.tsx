@@ -9,6 +9,7 @@ import { doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import router from 'next/router';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineEye } from 'react-icons/ai';
@@ -63,7 +64,7 @@ const LoginPage = () => {
                 <head>
                   <meta charset="UTF-8" />
                   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                  <title>OTP for HMAgrivest</title>
+                  <title>OTP for CapVentures</title>
                   <style>
                     body {
                       font-family: Arial, sans-serif;
@@ -115,15 +116,15 @@ const LoginPage = () => {
                 <body>
                   <div class="container">
                     <div class="header">
-                      <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="HMAgrivest Logo" />
-                      <h2>HMAgrivest OTP Verification</h2>
+                      <img src="https://res.cloudinary.com/dyubkqdp2/image/upload/c_thumb,w_200,g_face/v1742335124/Group_23_nruyhs.png" alt="CapVentures Logo" />
+                      <h2>CapVentures OTP Verification</h2>
                     </div>
 
                     <div class="message">
                       <p>Dear ${data.fullname},</p>
 
                       <p>
-                        Thank you for registering with HMAgrivest! We are excited to have you on board. Please use the one-time passcode (OTP) below to verify your account:
+                        Thank you for registering with CapVentures! We are excited to have you on board. Please use the one-time passcode (OTP) below to verify your account:
                       </p>
 
                       <div class="otp">
@@ -142,7 +143,7 @@ const LoginPage = () => {
                     <div class="footer">
                       <p>
                         Best regards,<br />
-                        The HMAgrivest Team
+                        The CapVentures Team
                       </p>
                       <p>
                         <a href="https://www.capitalonlineventures.com">www.capitalonlineventures.com</a>
@@ -161,8 +162,13 @@ const LoginPage = () => {
               })
 
 
-            router.push(`/auth/otp?userId=${data._id}&fullname=${data.fullname}&email=${encodeURIComponent(data.email)}`)
+            router.push(`/auth/otp`)
             return
+            }
+            if(data.kyc_pending === true && data.kyc_submitted === true) {
+              toast.error("Your KYC is under review")
+              // router.replace("/auth/kyc") 
+              return
             }
             toast.success('Welcome to CAP VENTURES');
             if (data.isAdmin) {

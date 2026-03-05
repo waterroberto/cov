@@ -48,12 +48,12 @@ const FaqData = [
       "subTitle": "You can deposit funds into your account through various third-party platforms such as Coinbase, Paxful, Bitpay, PayPal, and Credit Card."
   },
   {
-    title: 'How does HMAgrivest Investment make profit?',
+    title: 'How does CapVentures Investment make profit?',
     subTitle:
       'CAP VENTURES generates profit by providing investors with access to diverse investment opportunities across commodities, stocks, and other high-value assets, earning management fees and a share of successful returns. Our platform offers exclusive financial tools, educational resources, and expert market insights through subscription-based plans, creating a sustainable revenue stream. Additionally, transaction fees from investment allocations and asset trading contribute to our earnings, while strategic partnerships, referral programs, and premium advisory services further enhance profitability. By empowering investors with data-driven insights and passive income opportunities, we ensure long-term financial growth for both our clients and our business.'
   },
   {
-    title: 'What problems does HMAgrivest Investment solve?',
+    title: 'What problems does CapVentures Investment solve?',
     subTitle:
       'CAP VENTURES bridges the gap for investors seeking profitable opportunities but lacking the expertise or time to navigate complex markets. By offering diversified investment options across commodities, stocks, and other high-value assets, we eliminate the barriers to entry and provide a seamless, expertly managed experience. Our platform ensures consistent returns by leveraging data-driven insights, strategic market analysis, and risk management techniques, reducing uncertainty and emotional decision-making. Additionally, we empower investors with exclusive financial tools, educational resources, and passive income opportunities, enabling them to grow their wealth confidently and efficiently.'
   },
@@ -82,7 +82,7 @@ export default function WhyUsPage() {
       <main>
         <section className="items-center gap-10 bg-primary pt-20 relative overflow-hidden  md:gap-8 lg:gap-20 grid grid-cols-1 lg:grid-cols-5 w-full">
           <div className='space-y-10 lg:col-span-3 order-2 lg:order-1 p-4 sm:pl-16 lg:pl-32 pt-10'>
-            <h2 className='text-3xl md:text-4xl font-medium text-gray-50'>{`HMAgrivest is the Professional's Gateway to the World's Markets`}</h2>
+            <h2 className='text-3xl md:text-4xl font-medium text-gray-50'>{`CapVentures is the Professional's Gateway to the World's Markets`}</h2>
           </div>
           <div className='lg:col-span-2 order-1 lg:order-2'>
           <Image alt='whys hero us image' src={whyUsImage} className='w-full h-full object-contain md:object-cover' />
