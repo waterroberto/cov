@@ -213,6 +213,30 @@ export default function TransactionHistory({
             </p>
           </div>
 
+          {/* Proof of Payment */}
+          {activeTransaction.type === 'deposit' && (activeTransaction as any).proofOfPayment && (
+            <div className='flex flex-col py-4 px-4 rounded-lg bg-gray-50/50 border border-gray-100/50 mb-6'>
+              <div className='flex items-center justify-between mb-4'>
+                <p className='text-gray-700 font-semibold text-sm'>Proof of Payment</p>
+                <a 
+                  href={typeof (activeTransaction as any).proofOfPayment === 'string' ? (activeTransaction as any).proofOfPayment : URL.createObjectURL((activeTransaction as any).proofOfPayment as File)} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 text-xs font-semibold"
+                >
+                  Open Full Image
+                </a>
+              </div>
+              <div className='mt-2 rounded-xl overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center p-2'>
+                <img
+                  src={typeof (activeTransaction as any).proofOfPayment === 'string' ? (activeTransaction as any).proofOfPayment : URL.createObjectURL((activeTransaction as any).proofOfPayment as File)}
+                  alt="Proof of Payment"
+                  className='max-w-full h-auto object-contain max-h-[300px] rounded-lg shadow-sm'
+                />
+              </div>
+            </div>
+          )}
+
           {/* Admin Actions */}
           {userData?.isAdmin && activeTransaction && (
             <div className='mt-8 pt-6 border-t border-gray-200/60'>

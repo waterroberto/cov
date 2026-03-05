@@ -60,12 +60,6 @@ export const links = [
   // },
 
   {
-    name: 'AML/KYC',
-    url: '/dashboard/kyc',
-    slug: "kyc",
-    icon: (color: string) => <IoDocumentAttachSharp color={color} />,
-  },
-  {
     name: 'profile',
     url: '/dashboard/profile',
     slug: "profile",

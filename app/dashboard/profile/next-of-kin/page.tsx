@@ -64,11 +64,11 @@ function NextOfKin() {
   });
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 relative overflow-hidden'>
+    <div className='min-h-screen w-full bg-slate-950 relative overflow-hidden'>
       {/* Animated Background */}
       <div className='absolute inset-0 overflow-hidden -z-10'>
-        <div className='absolute top-0 left-1/4 w-96 h-96 bg-green-200/20 rounded-full blur-3xl animate-pulse' />
-        <div className='absolute bottom-0 right-1/3 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl animate-pulse' />
+        <div className='absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse' />
+        <div className='absolute bottom-0 right-1/3 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-pulse' />
       </div>
 
       <div className='relative z-10 w-full p-4 md:p-6 lg:p-8 space-y-8'>
@@ -81,10 +81,10 @@ function NextOfKin() {
 
         {/* Form Card */}
         <ProfileFormCard>
-          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-6 border-b border-gray-200 gap-4 sm:gap-0'>
+          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-6 border-b border-white/10 gap-4 sm:gap-0'>
             <div className='min-w-0'>
-              <h2 className='text-xl sm:text-2xl font-bold text-gray-900 truncate'>Emergency Contact</h2>
-              <p className='text-gray-600 text-xs sm:text-sm mt-1 line-clamp-2 sm:line-clamp-none'>
+              <h2 className='text-xl sm:text-2xl font-bold text-white truncate'>Emergency Contact</h2>
+              <p className='text-gray-400 text-xs sm:text-sm mt-1 line-clamp-2 sm:line-clamp-none'>
                 We will transfer your investments to this person in case of emergencies
               </p>
             </div>
@@ -112,14 +112,14 @@ function NextOfKin() {
 
           <form onSubmit={formik.handleSubmit} className='space-y-6'>
             {/* Personal Details Section */}
-            <div className='mb-8 pb-6 border-b border-gray-100'>
-              <h3 className='text-lg font-bold text-gray-900 mb-6 flex items-center gap-2'>
+            <div className='mb-8 pb-6 border-b border-white/5'>
+              <h3 className='text-lg font-bold text-white mb-6 flex items-center gap-2'>
                 📋 Personal Information
               </h3>
               <div className='space-y-5'>
                 {/* Full Name */}
                 <div>
-                  <label htmlFor='name' className='block text-sm font-semibold text-gray-900 mb-2'>
+                  <label htmlFor='name' className='block text-sm font-semibold text-white mb-2'>
                     Full Name
                   </label>
                   <TextInput
@@ -131,7 +131,8 @@ function NextOfKin() {
                     onBlur={formik.handleBlur}
                     disabled={!editState}
                     placeholder='Enter full name'
-                    className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                    sx='text-white'
+                    className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
                   />
                   {formik.touched.name && formik.errors.name && (
                     <p className='text-red-600 text-sm mt-1'>{formik.errors.name}</p>
@@ -140,7 +141,7 @@ function NextOfKin() {
 
                 {/* Email */}
                 <div>
-                  <label htmlFor='email' className='block text-sm font-semibold text-gray-900 mb-2'>
+                  <label htmlFor='email' className='block text-sm font-semibold text-white mb-2'>
                     Email Address
                   </label>
                   <TextInput
@@ -152,7 +153,8 @@ function NextOfKin() {
                     onBlur={formik.handleBlur}
                     disabled={!editState}
                     placeholder='Enter email address'
-                    className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                    sx='text-white'
+                    className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
                   />
                   {formik.touched.email && formik.errors.email && (
                     <p className='text-red-600 text-sm mt-1'>{formik.errors.email}</p>
@@ -161,7 +163,7 @@ function NextOfKin() {
 
                 {/* Phone Number */}
                 <div>
-                  <label htmlFor='phoneNumber' className='block text-sm font-semibold text-gray-900 mb-2'>
+                  <label htmlFor='phoneNumber' className='block text-sm font-semibold text-white mb-2'>
                     Phone Number
                   </label>
                   <TextInput
@@ -173,7 +175,8 @@ function NextOfKin() {
                     onBlur={formik.handleBlur}
                     disabled={!editState}
                     placeholder='Enter phone number'
-                    className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                    sx='text-white'
+                    className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
                   />
                   {formik.touched.phoneNumber && formik.errors.phoneNumber && (
                     <p className='text-red-600 text-sm mt-1'>{formik.errors.phoneNumber}</p>
@@ -184,13 +187,13 @@ function NextOfKin() {
 
             {/* Relationship Details Section */}
             <div>
-              <h3 className='text-lg font-bold text-gray-900 mb-6 flex items-center gap-2'>
+              <h3 className='text-lg font-bold text-white mb-6 flex items-center gap-2'>
                 🔗 Relationship Details
               </h3>
               <div className='space-y-5'>
                 {/* Relationship */}
                 <div>
-                  <label htmlFor='relationship' className='block text-sm font-semibold text-gray-900 mb-2'>
+                  <label htmlFor='relationship' className='block text-sm font-semibold text-white mb-2'>
                     Relationship
                   </label>
                   <TextInput
@@ -202,7 +205,8 @@ function NextOfKin() {
                     onBlur={formik.handleBlur}
                     disabled={!editState}
                     placeholder='e.g., Spouse, Parent, Sibling'
-                    className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                    sx='text-white'
+                    className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
                   />
                   {formik.touched.relationship && formik.errors.relationship && (
                     <p className='text-red-600 text-sm mt-1'>{formik.errors.relationship}</p>
@@ -211,7 +215,7 @@ function NextOfKin() {
 
                 {/* Gender */}
                 <div>
-                  <label htmlFor='gender' className='block text-sm font-semibold text-gray-900 mb-2'>
+                  <label htmlFor='gender' className='block text-sm font-semibold text-white mb-2'>
                     Gender
                   </label>
                   <TextInput
@@ -223,7 +227,8 @@ function NextOfKin() {
                     onBlur={formik.handleBlur}
                     disabled={!editState}
                     placeholder='e.g., Male, Female'
-                    className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                    sx='text-white'
+                    className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
                   />
                   {formik.touched.gender && formik.errors.gender && (
                     <p className='text-red-600 text-sm mt-1'>{formik.errors.gender}</p>

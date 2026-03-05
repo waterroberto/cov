@@ -64,7 +64,7 @@ function ProfileSettings() {
   }, [userData]);
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 relative overflow-hidden'>
+    <div className='min-h-screen w-full bg-slate-950 relative overflow-hidden'>
       {/* Animated Background */}
       <div className='absolute inset-0 overflow-hidden -z-10'>
         <div className='absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse' />
@@ -81,8 +81,8 @@ function ProfileSettings() {
 
         {/* Form Card */}
         <ProfileFormCard>
-          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-6 border-b border-gray-200 gap-4 sm:gap-0'>
-            <h2 className='text-xl sm:text-2xl font-bold text-gray-900'>Personal Information</h2>
+          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-6 border-b border-white/10 gap-4 sm:gap-0'>
+            <h2 className='text-xl sm:text-2xl font-bold text-white'>Personal Information</h2>
             <button
               type='button'
               onClick={() => setEditState(!editState)}
@@ -108,7 +108,7 @@ function ProfileSettings() {
           <form onSubmit={formik.handleSubmit} className='space-y-6'>
             {/* Full Name */}
             <div>
-              <label htmlFor='fullname' className='block text-sm font-semibold text-gray-900 mb-2'>
+              <label htmlFor='fullname' className='block text-sm font-semibold text-white mb-2'>
                 Full Name
               </label>
               <TextInput
@@ -120,7 +120,8 @@ function ProfileSettings() {
                 onBlur={formik.handleBlur}
                 disabled={!editState}
                 placeholder='Enter your full name'
-                className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                sx='text-white'
+                className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
               />
               {formik.touched.fullname && formik.errors.fullname && (
                 <p className='text-red-600 text-sm mt-1'>{formik.errors.fullname}</p>
@@ -129,7 +130,7 @@ function ProfileSettings() {
 
             {/* Email */}
             <div>
-              <label htmlFor='email' className='block text-sm font-semibold text-gray-900 mb-2'>
+              <label htmlFor='email' className='block text-sm font-semibold text-white mb-2'>
                 Email Address
               </label>
               <TextInput
@@ -141,7 +142,8 @@ function ProfileSettings() {
                 onBlur={formik.handleBlur}
                 disabled={!editState}
                 placeholder='Enter your email'
-                className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                sx='text-white'
+                className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
               />
               {formik.touched.email && formik.errors.email && (
                 <p className='text-red-600 text-sm mt-1'>{formik.errors.email}</p>
@@ -150,7 +152,7 @@ function ProfileSettings() {
 
             {/* Phone */}
             <div>
-              <label htmlFor='phone' className='block text-sm font-semibold text-gray-900 mb-2'>
+              <label htmlFor='phone' className='block text-sm font-semibold text-white mb-2'>
                 Phone Number
               </label>
               <TextInput
@@ -162,7 +164,8 @@ function ProfileSettings() {
                 onBlur={formik.handleBlur}
                 disabled={!editState}
                 placeholder='Enter your phone number'
-                className={!editState ? 'bg-gray-100 cursor-not-allowed' : ''}
+                sx='text-white'
+                className={!editState ? 'bg-white/5 border-white/5 text-gray-500 cursor-not-allowed' : 'bg-white/5 border-white/10'}
               />
               {formik.touched.phone && formik.errors.phone && (
                 <p className='text-red-600 text-sm mt-1'>{formik.errors.phone}</p>

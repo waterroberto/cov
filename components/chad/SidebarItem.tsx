@@ -68,7 +68,7 @@ export default function SidebarItem({ item, isOpen, onClick }: Props) {
           >
             <Tooltip>
               <TooltipTrigger className="items-center cursor-pointer flex">
-                {icon(isActive ? "text-blue-600" : "text-gray-400")}
+                {icon(isActive ? "text-blue-600" : "text-blue-700")}
               </TooltipTrigger>
               {!isOpen && (
                 <TooltipContent side="right" className="capitalize bg-gray-900 text-white border-gray-800">
@@ -81,7 +81,7 @@ export default function SidebarItem({ item, isOpen, onClick }: Props) {
             <span
               className={cn(
                 "capitalize whitespace-nowrap flex-1 flex items-center gap-3 font-medium text-sm transition-colors",
-                isActive ? "font-semibold text-blue-700" : "text-gray-700 hover:text-gray-900",
+                isActive ? "font-semibold text-blue-700" : "text-gray-100 hover:text-gray-900",
                 children?.length ? "text-gray-600" : ""
               )}
             >

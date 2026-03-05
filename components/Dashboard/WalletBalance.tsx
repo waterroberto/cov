@@ -22,21 +22,21 @@ export default function WalletBalance() {
     <div className='space-y-6'>
       {/* Welcome Message */}
       <div className='flex items-baseline justify-between'>
-        <p className='text-2xl md:text-3xl capitalize text-gray-900 font-bold'>Hey welcome, <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>{userData.fullname.split(" ")[0]}</span>! 👋</p>
+        <p className='text-2xl md:text-3xl capitalize text-white font-bold'>Hey welcome, <span className='bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent'>{userData.fullname.split(" ")[0]}</span>! 👋</p>
       </div>
 
       {/* Available Balance Card */}
-      <div className='rounded-2xl bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-8 md:p-10 border border-blue-200/50 shadow-lg'>
+      <div className='rounded-2xl bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-purple-900/20 p-8 md:p-10 border border-blue-500/20 shadow-lg'>
         <div className='flex items-center justify-between mb-6'>
           <div>
-            <p className='text-gray-600 text-sm font-medium mb-1'>Available Balance</p>
-            <p className='text-gray-500 text-xs'>Your total balance</p>
+            <p className='text-blue-400 text-lg tracking-wider uppercase font-semibold mb-1'>Available Balance</p>
+            <p className='text-gray-100 text-xs'>Your  total balance</p>
           </div>
-          <button role='button' onClick={toggleShowBalance} className='text-2xl text-gray-600 hover:text-blue-600 transition-colors'>
+          <button role='button' onClick={toggleShowBalance} className='text-2xl text-gray-400 hover:text-blue-400 transition-colors'>
             {showBalance ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
-        <p className='text-5xl md:text-6xl text-gray-900 font-bold my-6'>
+        <p className='text-5xl md:text-6xl text-white font-bold my-6'>
         {showBalance ? (
           <span>
             {userData?.currency}
@@ -53,11 +53,11 @@ export default function WalletBalance() {
       </p>
 
       {/* Action Buttons & Plan Info */}
-      <div className='mt-8 pt-6 border-t border-blue-200/50'>
+      <div className='mt-8 pt-6 border-t border-white/10'>
         <div className='flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-6'>
           <div className='flex-1 space-y-1'>
-            <p className='text-sm text-gray-600 font-medium'>Current Plan</p>
-            <p className='text-lg md:text-xl text-gray-900 font-bold capitalize'>{userData.selectedPlan || 'No Plan Selected'}</p>
+            <p className='text-sm text-gray-400 font-medium'>Current Plan</p>
+            <p className='text-lg md:text-xl text-white font-bold capitalize'>{userData.selectedPlan || 'No Plan Selected'}</p>
           </div>
           <div className='flex flex-col sm:flex-row w-full sm:w-auto gap-3'>
             <Link href='/dashboard/profile' className='flex-1 sm:flex-none'>

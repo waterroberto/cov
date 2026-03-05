@@ -42,19 +42,7 @@ export default function DashboardProfile() {
         },
       ],
     },
-    {
-      title: 'Verification',
-      icon: <FaCheck size={20} />,
-      subtitle: 'Complete account verification',
-      color: 'from-green-500 to-green-600',
-      items: [
-        {
-          label: 'KYC & Account Upgrade',
-          description: 'Verify your identity for full access',
-          url: '/dashboard/kyc',
-        },
-      ],
-    },
+
     {
       title: 'Security',
       icon: <FaLock size={20} />,
@@ -71,7 +59,7 @@ export default function DashboardProfile() {
   ];
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 relative overflow-hidden'>
+    <div className='min-h-screen w-full bg-slate-950 relative overflow-hidden'>
       {/* Animated Background */}
       <div className='absolute inset-0 overflow-hidden -z-10'>
         <div className='absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse' />
@@ -80,8 +68,8 @@ export default function DashboardProfile() {
 
       <div className='relative z-10 w-full p-4 md:p-6 lg:p-8 space-y-8'>
         {/* User Info Header Card */}
-        <div className='rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden'>
-          <div className='bg-gradient-to-r from-blue-600 to-purple-600 px-6 md:px-8 py-8 md:py-10'>
+        <div className='rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden'>
+          <div className='bg-gradient-to-r from-blue-900/40 to-purple-900/40 px-6 md:px-8 py-8 md:py-10 border-b border-white/10'>
             <div className='flex flex-col sm:flex-row items-start sm:items-center gap-6'>
               {/* Avatar */}
               <div className='flex-shrink-0'>
@@ -141,19 +129,19 @@ export default function DashboardProfile() {
           </div>
 
           {/* User Stats */}
-          <div className='px-6 md:px-8 py-6 md:py-7 border-t border-gray-200/20'>
+          <div className='px-6 md:px-8 py-6 md:py-7'>
             <div className='grid grid-cols-3 gap-4 md:gap-6'>
               <div className='text-center'>
-                <p className='text-gray-600 text-sm font-medium mb-1'>Account Level</p>
-                <p className='text-2xl md:text-3xl font-bold text-gray-900'>{userData?.account_level || 1}</p>
+                <p className='text-gray-400 text-sm font-medium mb-1 tracking-wider uppercase'>Account Level</p>
+                <p className='text-2xl md:text-3xl font-bold text-white'>{userData?.account_level || 1}</p>
               </div>
               <div className='text-center'>
-                <p className='text-gray-600 text-sm font-medium mb-1'>Member Since</p>
-                <p className='text-2xl md:text-3xl font-bold text-gray-900'>{userData?.timestamp?.toDate?.()?.getFullYear() || new Date().getFullYear()}</p>
+                <p className='text-gray-400 text-sm font-medium mb-1 tracking-wider uppercase'>Member Since</p>
+                <p className='text-2xl md:text-3xl font-bold text-white'>{userData?.timestamp?.toDate?.()?.getFullYear() || new Date().getFullYear()}</p>
               </div>
               <div className='text-center'>
-                <p className='text-gray-600 text-sm font-medium mb-1'>Phone</p>
-                <p className='text-lg md:text-xl font-bold text-gray-900'>{userData?.phone?.slice(-4) || 'N/A'}</p>
+                <p className='text-gray-400 text-sm font-medium mb-1 tracking-wider uppercase'>Phone</p>
+                <p className='text-lg md:text-xl font-bold text-white'>{userData?.phone?.slice(-4) || 'N/A'}</p>
               </div>
             </div>
           </div>
@@ -168,10 +156,10 @@ export default function DashboardProfile() {
                 {section.icon}
               </div>
               <div>
-                <h3 className='text-xl md:text-2xl font-bold text-gray-900'>
+                <h3 className='text-xl md:text-2xl font-bold text-white'>
                   {section.title}
                 </h3>
-                <p className='text-sm text-gray-600'>
+                <p className='text-sm text-gray-400'>
                   {section.subtitle}
                 </p>
               </div>
@@ -181,17 +169,17 @@ export default function DashboardProfile() {
             <div className='grid gap-3'>
               {section.items.map((item, itemIdx) => (
                 <Link key={itemIdx} href={item.url}>
-                  <div className='rounded-xl bg-white/80 backdrop-blur-md shadow-sm border border-white/20 p-4 md:p-5 hover:shadow-md hover:border-white/40 transition-all duration-300 cursor-pointer group'>
+                  <div className='rounded-xl bg-white/5 backdrop-blur-md shadow-sm border border-white/10 p-4 md:p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group'>
                     <div className='flex items-center justify-between'>
                       <div>
-                        <p className='font-semibold text-gray-900 group-hover:text-blue-600 transition-colors'>
+                        <p className='font-semibold text-white group-hover:text-blue-400 transition-colors'>
                           {item.label}
                         </p>
-                        <p className='text-sm text-gray-600 mt-1'>
+                        <p className='text-sm text-gray-400 mt-1'>
                           {item.description}
                         </p>
                       </div>
-                      <div className='text-2xl text-gray-300 group-hover:text-blue-500 transition-colors group-hover:translate-x-1 duration-300'>
+                      <div className='text-2xl text-gray-500 group-hover:text-blue-400 transition-colors group-hover:translate-x-1 duration-300'>
                         →
                       </div>
                     </div>
@@ -203,7 +191,7 @@ export default function DashboardProfile() {
         ))}
 
         {/* Logout Button */}
-        <div className='rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 p-6 md:p-8'>
+        <div className='rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 p-6 md:p-8'>
           <Button
             type='button'
             block
@@ -214,7 +202,7 @@ export default function DashboardProfile() {
           >
             Logout from Account
           </Button>
-          <p className='text-center text-gray-600 text-sm mt-4'>
+          <p className='text-center text-gray-400 text-sm mt-4'>
             You will be logged out from all devices
           </p>
         </div>

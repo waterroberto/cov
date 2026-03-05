@@ -83,43 +83,49 @@ const SignalTrading = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <div className='mt-8 text-gray-700'>
-      <Card>
-        <p className='text-xl font-medium mb-4'>Market Plans</p>
+    <div className='text-white space-y-8'>
+      <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between'>
+        <div>
+          <h2 className='text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-2'>Market Plans</h2>
+          <p className='text-gray-400 text-sm'>Manage and add available trading markets.</p>
+        </div>
 
-        <Button type='button' onClick={openModal}>
+        <Button type='button' onClick={openModal} className='mt-4 md:mt-0 shadow-lg shadow-blue-500/20'>
           Add new Market
         </Button>
       </Card>
 
       {markets && markets.length > 0  ? (
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-          {markets.map((code) => (
-            <Card key={code.id}>
-              <div className='text-sm my-6'>
-                <div className='flex items-center gap-8 justify-between my-1'>
-                  <p className='font-semibold'>Maket:</p>
-                  <p className='font-bold text-lg'> {code.plan} </p>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
+            {markets.map((code) => (
+              <Card key={code.id} className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl hover:bg-white/10 transition-colors group'>
+                <div className='text-sm my-6'>
+                  <div className='flex items-center gap-8 justify-between my-1'>
+                    <p className='font-semibold text-gray-400 uppercase tracking-wider text-xs'>Market</p>
+                    <p className='font-bold text-xl text-white'> {code.plan} </p>
+                  </div>
                 </div>
-              </div>
 
-              <Button
-                size='small'
-                onClick={() => {
-                  window.navigator.clipboard
-                    .writeText(code.plan)
-                    .then(() => toast.success('Copied!'));
-                }}
-                variant='outlined'
-              >
-                Copy
-              </Button>
-            </Card>
+                <div className='flex justify-end mt-4'>
+                  <Button
+                    size='small'
+                    onClick={() => {
+                      window.navigator.clipboard
+                        .writeText(code.plan)
+                        .then(() => toast.success('Copied!'));
+                    }}
+                    variant='outlined'
+                    className='border-white/20 text-white hover:bg-white/10 group-hover:border-blue-500/50 transition-all'
+                  >
+                    Copy
+                  </Button>
+                </div>
+              </Card>
           ))}
         </div>
       ) : (
-        <Card>
-          <p className='text-3xl font-semibold p-4'>No Markets Avalable</p>
+        <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl'>
+          <p className='text-2xl font-light p-12 text-center text-gray-400'>No Markets Available</p>
         </Card>
       )}
 
@@ -127,7 +133,7 @@ const SignalTrading = () => {
       <Modal
         isOpen={modalOpen}
         handleClose={closeModal}
-        title='Add Maket'
+        title='Add Market'
       >
         <form onSubmit={generateNewCode}>
           {/* <div className='mb-4'>

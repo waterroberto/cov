@@ -94,7 +94,7 @@ export const UserService = {
     const data = await response.json();
     console.log(data.url)
 
-    // // const fileUrl = await getDownloadURL(snapshot.ref);
+    // const fileUrl = await getDownloadURL(snapshot.ref);
 
     return data.url;
   },

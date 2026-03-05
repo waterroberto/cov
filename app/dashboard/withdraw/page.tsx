@@ -125,7 +125,7 @@ function Withdraw() {
   return (
     <>
       <Meta title='Withdraw - CAP VENTURES' />
-      <div className='min-h-screen w-full bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 relative overflow-hidden'>
+      <div className='min-h-screen w-full bg-slate-950 relative overflow-hidden'>
         {/* Animated background */}
         <div className='absolute inset-0 overflow-hidden'>
           <div className='absolute inset-0 bg-gradient-to-br from-blue-300/5 via-transparent to-purple-300/5' />
@@ -145,27 +145,27 @@ function Withdraw() {
             <div className='mb-8'>
               <div className='flex items-center justify-between mb-6'>
                 <div>
-                  <h1 className='text-4xl font-bold text-gray-900 mb-2'>Withdraw Funds</h1>
-                  <p className='text-gray-600'>Request your earnings and profits</p>
+                  <h1 className='text-4xl font-bold text-white mb-2'>Withdraw Funds</h1>
+                  <p className='text-gray-400'>Request your earnings and profits</p>
                 </div>
                 <Logo width={80} height={80} />
               </div>
             </div>
 
             {/* Balance Card */}
-            <div className='rounded-3xl bg-white shadow-lg border border-gray-200 p-8 mb-8'>
+            <div className='rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl p-8 mb-8'>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                <div className='rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-6 border border-green-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Available to Withdraw</p>
-                  <p className='text-3xl font-bold text-green-600'>{userData.currency}{userData.wallet.withdraw.toLocaleString()}</p>
+                <div className='rounded-2xl bg-gradient-to-br from-green-900/20 to-transparent p-6 border border-green-500/20'>
+                  <p className='text-green-400 text-xs uppercase font-semibold tracking-wider mb-2'>Available to Withdraw</p>
+                  <p className='text-white text-3xl font-bold'>{userData.currency}{userData.wallet.withdraw.toLocaleString()}</p>
                 </div>
-                <div className='rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 p-6 border border-blue-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Total Withdrawals</p>
-                  <p className='text-3xl font-bold text-blue-600'>{userData.withdrawals?.length || 0}</p>
+                <div className='rounded-2xl bg-gradient-to-br from-blue-900/20 to-transparent p-6 border border-blue-500/20'>
+                  <p className='text-blue-400 text-xs uppercase tracking-wider font-semibold mb-2'>Total Withdrawals</p>
+                  <p className='text-white text-3xl font-bold'>{userData.withdrawals?.length || 0}</p>
                 </div>
-                <div className='rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-6 border border-amber-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Processing Time</p>
-                  <p className='text-3xl font-bold text-amber-600'>24-48h</p>
+                <div className='rounded-2xl bg-gradient-to-br from-amber-900/20 to-transparent p-6 border border-amber-500/20'>
+                  <p className='text-amber-400 text-xs uppercase tracking-wider font-semibold mb-2'>Processing Time</p>
+                  <p className='text-white text-3xl font-bold'>24-48h</p>
                 </div>
               </div>
             </div>
@@ -187,9 +187,9 @@ function Withdraw() {
             {userData?.withdrawals && userData.withdrawals.length > 0 ? (
               <TransactionHistory data={userData.withdrawals} />
             ) : (
-              <div className='rounded-3xl bg-white border border-gray-200 shadow-lg p-12 text-center'>
-                <ImFilesEmpty className='text-6xl text-gray-300 mx-auto mb-4 opacity-75' />
-                <p className='text-gray-500 font-medium'>No withdrawals yet</p>
+              <div className='rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg p-12 text-center'>
+                <ImFilesEmpty className='text-6xl text-gray-600 mx-auto mb-4 opacity-75' />
+                <p className='text-gray-400 font-medium'>No withdrawals yet</p>
               </div>
             )}
           </div>

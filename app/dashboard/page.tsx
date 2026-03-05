@@ -15,26 +15,26 @@ export default function Dashboard() {
     { icon: FaChartLine, label: 'Trading', href: '/dashboard/trading', color: 'from-green-500 to-green-600' },
     { icon: FaCog, label: 'Settings', href: '/dashboard/profile', color: 'from-amber-500 to-amber-600' },
   ];
-
+// bg-slate-950
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 relative overflow-hidden">
+    <div className="min-h-screen w-full relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden -z-10">
+      {/* <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute top-1/2 right-0 w-72 h-72 bg-cyan-200/20 rounded-full blur-3xl animate-pulse" />
-      </div>
+      </div> */}
 
-      <div className="relative z-10 w-full p-4 md:p-6 lg:p-8 space-y-6">
+      <div className="relative z-10 w-full rounded-2xl p-2 md:p-6 lg:p-8 space-y-6">
         {/* Market Ticker - Sticky Header */}
-        <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
+        <div className="rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden">
           <TradingViewTicker />
         </div>
 
         {/* Wallet Balance Section */}
-        <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
+        {/* <div className="rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden"> */}
           <WalletBalance />
-        </div>
+        {/* </div> */}
 
         {/* Quick Actions Grid */}
         {/* <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 p-6">
@@ -58,35 +58,35 @@ export default function Dashboard() {
 
         {/* Single Ticker & Trader Level Section */}
         <div className="flex flex-col w-full sm:flex-row items-center gap-4">
-          <div className="flex-1 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
+          {/* <div className="flex-1 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden"> */}
             <TradingSingleTicker />
-          </div>
+          {/* </div> */}
           {/* <div className="flex-1 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
             <TraderLevel />
           </div> */}
         </div>
 
         {/* Account Balance Section */}
-        <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
+        {/* <div className="rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden"> */}
           <AccountBalance />
-        </div>
+        {/* </div> */}
 
         {/* Trading Chart Section */}
-        <div className="rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 overflow-hidden">
+        <div className="rounded-2xl bg-white/5 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden">
           <TradingViewChart />
         </div>
 
         {/* Support & Resources Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Help Center */}
-          <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 shadow-lg border border-blue-200/30 p-6">
+          <div className="rounded-2xl bg-gradient-to-br from-blue-900/20 to-transparent shadow-lg border border-blue-500/20 p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white">
                 <FaQuestionCircle size={24} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Help Center</h3>
+              <h3 className="text-xl font-bold text-white">Help Center</h3>
             </div>
-            <p className="text-gray-700 text-sm mb-4">Need assistance? Our support team is here to help you with any questions about trading, deposits, withdrawals, and more.</p>
+            <p className="text-gray-400 text-sm mb-4">Need assistance? Our support team is here to help you with any questions about trading, deposits, withdrawals, and more.</p>
             <Link href="/#contact">
               <button className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
                 Get Support

@@ -87,7 +87,7 @@ function Deposit() {
   return (
     <>
       <Meta title='Deposit - CAP VENTURES' />
-      <div className='min-h-screen w-full bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 relative overflow-hidden'>
+      <div className='min-h-screen w-full bg-slate-950 relative overflow-hidden'>
         {/* Animated background */}
         <div className='absolute inset-0 overflow-hidden'>
           <div className='absolute inset-0 bg-gradient-to-br from-blue-300/5 via-transparent to-purple-300/5' />
@@ -107,27 +107,27 @@ function Deposit() {
             <div className='mb-8'>
               <div className='flex items-center justify-between mb-6'>
                 <div>
-                  <h1 className='text-4xl font-bold text-gray-900 mb-2'>Deposit Funds</h1>
-                  <p className='text-gray-600'>Add funds to your investment account</p>
+                  <h1 className='text-4xl font-bold text-white mb-2'>Deposit Funds</h1>
+                  <p className='text-gray-400'>Add funds to your investment account</p>
                 </div>
                 <Logo width={80} height={80} />
               </div>
             </div>
 
             {/* Balance Card */}
-            <div className='rounded-3xl bg-white shadow-lg border border-gray-200 p-8 mb-8'>
+            <div className='rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl p-8 mb-8'>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                <div className='rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 p-6 border border-blue-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Available to Deposit</p>
-                  <p className='text-gray-900 text-3xl font-bold'>{userData.currency}{userData.wallet.deposit.toLocaleString()}</p>
+                <div className='rounded-2xl bg-gradient-to-br from-blue-900/20 to-transparent p-6 border border-blue-500/20'>
+                  <p className='text-blue-400 uppercase text-xs font-semibold mb-2 tracking-wider'>Available to Deposit</p>
+                  <p className='text-white text-3xl font-bold'>{userData.currency}{userData.wallet.deposit.toLocaleString()}</p>
                 </div>
-                <div className='rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-6 border border-green-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Total Deposits</p>
-                  <p className='text-gray-900 text-3xl font-bold'>{userData.deposits?.length || 0}</p>
+                <div className='rounded-2xl bg-gradient-to-br from-green-900/20 to-transparent p-6 border border-green-500/20'>
+                  <p className='text-green-400 text-xs uppercase tracking-wider font-semibold mb-2'>Total Deposits</p>
+                  <p className='text-white text-3xl font-bold'>{userData.deposits?.length || 0}</p>
                 </div>
-                <div className='rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-6 border border-amber-200/50'>
-                  <p className='text-gray-700 text-sm mb-2 font-medium'>Pending Amount</p>
-                  <p className='text-gray-900 text-3xl font-bold'>{userData.currency}0</p>
+                <div className='rounded-2xl bg-gradient-to-br from-amber-900/20 to-transparent p-6 border border-amber-500/20'>
+                  <p className='text-amber-400 text-xs uppercase tracking-wider font-semibold mb-2'>Pending Amount</p>
+                  <p className='text-white text-3xl font-bold'>{userData.currency}0</p>
                 </div>
               </div>
             </div>
@@ -137,12 +137,12 @@ function Deposit() {
               {/* Crypto */}
               <button
                 onClick={() => setModal(true)}
-                className='group rounded-3xl bg-white border border-gray-200 shadow-lg hover:shadow-2xl hover:border-blue-400/50 transition-all duration-300 p-8'
+                className='group rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-2xl hover:border-blue-500/50 transition-all duration-300 p-8 text-left'
               >
                 <div className='flex items-center justify-between mb-0'>
                   <div>
-                    <h3 className='text-gray-900 font-bold text-xl mb-2'>Deposit via Crypto</h3>
-                    <p className='text-gray-600 text-sm mb-4'>Bitcoin, Ethereum, USDT</p>
+                    <h3 className='text-white font-bold text-xl mb-2'>Deposit via Crypto</h3>
+                    <p className='text-gray-400 text-sm mb-4'>Bitcoin, Ethereum, USDT</p>
                     <div className='flex items-center gap-2 text-blue-600 group-hover:text-blue-700 font-medium'>
                       <span>Start Deposit</span>
                       <svg className='w-4 h-4 transform group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -159,12 +159,12 @@ function Deposit() {
               {/* Bank */}
               <button
                 onClick={() => toast.success('Contact support@capitalonlineventures.com for bank deposit')}
-                className='group rounded-3xl bg-white border border-gray-200 shadow-lg hover:shadow-2xl hover:border-purple-400/50 transition-all duration-300 p-8'
+                className='group rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-2xl hover:border-purple-500/50 transition-all duration-300 p-8 text-left'
               >
                 <div className='flex items-center justify-between mb-0'>
                   <div>
-                    <h3 className='text-gray-900 font-bold text-xl mb-2'>Deposit via Bank</h3>
-                    <p className='text-gray-600 text-sm mb-4'>Local bank transfer</p>
+                    <h3 className='text-white font-bold text-xl mb-2'>Deposit via Bank</h3>
+                    <p className='text-gray-400 text-sm mb-4'>Local bank transfer</p>
                     <div className='flex items-center gap-2 text-purple-600 group-hover:text-purple-700 font-medium'>
                       <span>Contact Support</span>
                       <svg className='w-4 h-4 transform group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -183,9 +183,9 @@ function Deposit() {
             {userData?.deposits && userData.deposits.length > 0 ? (
               <TransactionHistory data={userData.deposits} />
             ) : (
-              <div className='rounded-3xl bg-white border border-gray-200 shadow-lg p-12 text-center'>
-                <ImFilesEmpty className='text-6xl text-gray-300 mx-auto mb-4 opacity-75' />
-                <p className='text-gray-500 font-medium'>No deposits yet. Make your first deposit to get started!</p>
+              <div className='rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg p-12 text-center'>
+                <ImFilesEmpty className='text-6xl text-gray-600 mx-auto mb-4 opacity-75' />
+                <p className='text-gray-400 font-medium'>No deposits yet. Make your first deposit to get started!</p>
               </div>
             )}
           </div>

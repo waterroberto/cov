@@ -52,11 +52,17 @@ export default function AdminLayout({
     return (
       <>
         <Meta />
-        <div className='grid grid-cols-12 bg-gray-100 relative min-h-screen'>
+        <div className='flex bg-[#050814] relative min-h-screen overflow-hidden'>
+          {/* Animated Background */}
+          <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+            <div className='absolute top-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl' />
+            <div className='absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl' />
+          </div>
+
           <div
-            className={`bg-white duration-500 transition-all border-r-[1px] border-r-gray-50 w-0 h-0 ${
-              sidebarOpen ? 'lg:col-span-2' : 'lg:col-span-1'
-            } `}
+            className={`duration-300 transition-all z-50 ${
+              sidebarOpen ? 'w-[260px]' : 'w-20 hidden lg:block'
+            }`}
           >
             <Sidebar
               isOpen={sidebarOpen}
@@ -65,12 +71,14 @@ export default function AdminLayout({
             />
           </div>
           <div
-            className={`duration-500 col-span-12 py-24 min-h-screen p-4 md:px-8 xl:px-16  ${
-              sidebarOpen ? 'lg:col-span-10' : 'lg:col-span-11'
-            }`}
+            className={`flex-1 duration-300 min-h-screen relative z-10 flex flex-col w-full`}
           >
             <Header isOpen={sidebarOpen} toggleSidebar={handleToggleSidebar} />
-            <div className='w-full max-w-7xl mx-auto'>{children}</div>
+            <div className='w-full p-4 md:p-8 pb-12 overflow-y-auto'>
+              <div className='max-w-7xl mx-auto space-y-6'>
+                {children}
+              </div>
+            </div>
           </div>
         </div>
       </>

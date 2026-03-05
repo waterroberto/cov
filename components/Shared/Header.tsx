@@ -49,25 +49,29 @@ export default function Header({
 
   return (
     <div
-      className={`p-4 flex items-center justify-between md:px-8 fixed top-0 left-0 w-full z-20 bg-white ${
-        isOpen ? 'lg:left-[16.66%] lg:w-5/6' : 'lg:left-[8.33%] lg:w-11/12'
-      }`}
+      className='sticky top-0 z-40 w-full p-4 md:px-8 border-b border-white/5 bg-[#050814]/80 backdrop-blur-md flex items-center justify-between transition-all duration-300'
     >
-      <div className='flex items-center gap-8'>
+      <div className='flex items-center gap-4 md:gap-8'>
         <button
-          className='font-bold capitalize text-2xl text-gray-950'
+          className='flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/50'
           onClick={toggleSidebar}
+          aria-label='Toggle Sidebar'
         >
-          <CgMenu />
+          <CgMenu className='text-3xl' />
         </button>
-        <p className='font-medium text-lg capitalize text-gray-50'>
-          {currentPage}
-        </p>
+        <div className='hidden sm:block'>
+          <h1 className='font-bold text-xl md:text-2xl capitalize bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent'>
+            {currentPage || 'Dashboard'}
+          </h1>
+        </div>
       </div>
-      <div className='flex items-center flex-col'>
-        {/* <UserAvatar name={userData.fullname} title={adminDetails?.userType} /> */}
-        <Link className=' outline outline-primary p-2 rounded-xl text-sm ' href={`/dashboard`}>
-           Go to Dashboard
+
+      <div className='flex items-center gap-4'>
+        <Link 
+          href='/dashboard'
+          className='px-4 py-2 flex items-center gap-2 rounded-xl text-sm font-semibold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors shadow-sm'
+        >
+          User Dashboard
         </Link>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import Button from '@/components/Global/Button'
 import Card from '@/components/Global/Card'
 import { db } from '@/config/firebase.config'
+import clsx from 'clsx'
 import { doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
@@ -67,30 +68,28 @@ function Wallets() {
 
 
   return (
-    <div className='min-h-screen'>
-      <Card>
-        <div className=' border-b p-4'>
-          <h2 className=" text-lg text-gray-700 font-bold">Wallet Addresses & QR Codes</h2>
-          <p className="text-sm text-gray-700 font-bold">Change wallet addresses here, and their QR code.</p>
+    <div className='min-h-screen text-white space-y-8'>
+      <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl'>
+        <div className='border-b border-white/10 pb-6 mb-8'>
+          <h2 className='text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-2'>System Wallet Addresses</h2>
+          <p className='text-sm text-gray-400'>Update the official wallet addresses used for receiving deposits globally.</p>
         </div>
 
         <form onSubmit={formik.handleSubmit}>
-           <p className='text-xl font-bold mb-4'>Wallet Addresses</p>
-
-            <div className='text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-              <div className='w-full col-span-1 my-4'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+              <div className='w-full'>
                 <label
                   htmlFor='btc'
-                  className='mb-2 font-semibold text-sm text-gray-800'
+                  className='block mb-2 font-medium text-xs uppercase tracking-wider text-gray-400'
                 >
-                  Bitcoin
+                  Bitcoin (BTC)
                 </label>
                 <input
                   type='text'
                   id='btc'
                   name="btc"
-                  placeholder=''
-                  className='p-4 outline-none border-none w-full rounded-md text-gray-200 bg-gray-700 text-sm'
+                  placeholder='Wallet Address'
+                  className='p-4 outline-none border border-white/10 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all w-full rounded-xl text-white bg-black/20 text-sm font-mono placeholder:text-gray-600'
                   required
                   onChange={(e) => {
                     formik.handleChange(e)
@@ -100,19 +99,19 @@ function Wallets() {
                   disabled={!changeWalletAddressStatus}
                 />
               </div>
-              <div className='w-full col-span-1 my-4'>
+              <div className='w-full'>
                 <label
                   htmlFor='eth'
-                  className='mb-2 font-semibold text-sm text-gray-800'
+                  className='block mb-2 font-medium text-xs uppercase tracking-wider text-gray-400'
                 >
-                  Ethereum
+                  Ethereum (ETH)
                 </label>
                 <input
                   type='text'
                   id='eth'
                   name="eth"
-                  placeholder=''
-                  className='p-4 outline-none border-none w-full rounded-md text-gray-200 bg-gray-700 text-sm'
+                  placeholder='Wallet Address'
+                  className='p-4 outline-none border border-white/10 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all w-full rounded-xl text-white bg-black/20 text-sm font-mono placeholder:text-gray-600'
                   required
                   onChange={(e) => {
                     formik.handleChange(e)
@@ -122,10 +121,10 @@ function Wallets() {
                   disabled={!changeWalletAddressStatus}
                 />
               </div>
-              <div className='w-full col-span-1 my-4'>
+              <div className='w-full'>
                 <label
                   htmlFor='usdt'
-                  className='mb-2 font-semibold text-sm text-gray-800'
+                  className='block mb-2 font-medium text-xs uppercase tracking-wider text-gray-400'
                 >
                   USDT (TRC20)
                 </label>
@@ -133,8 +132,8 @@ function Wallets() {
                   type='text'
                   id='usdt'
                   name="usdt"
-                  placeholder=''
-                  className='p-4 outline-none border-none w-full rounded-md text-gray-200 bg-gray-700 text-sm'
+                  placeholder='Wallet Address'
+                  className='p-4 outline-none border border-white/10 focus:border-green-500/50 focus:ring-1 focus:ring-green-500/50 transition-all w-full rounded-xl text-white bg-black/20 text-sm font-mono placeholder:text-gray-600'
                   required
                   onChange={(e) => {
                     formik.handleChange(e)
@@ -146,27 +145,28 @@ function Wallets() {
               </div>
             </div>
 
-            <div className='flex justify-between w-full'>
+            <div className='flex justify-end gap-4 border-t border-white/10 pt-8 mt-8'>
               <Button
                 type='button'
-                color={`${changeWalletAddressStatus ? '#eb5757' : '#1bea93'}`}
-                className={` text-white`}
                 onClick={() => {
                   if (changeWalletAddressStatus)
                     setChangeWalletAddressStatus(false);
                   else setChangeWalletAddressStatus(true);
                 }}
+                className={clsx(
+                  'transition-all font-semibold rounded-lg', 
+                  changeWalletAddressStatus ? 'bg-red-500/10 text-red-500 hover:bg-red-500/20' : 'bg-white/10 text-white hover:bg-white/20'
+                )}
               >
-                {changeWalletAddressStatus ? 'Cancel' : 'Change Wallet Address'}
+                {changeWalletAddressStatus ? 'Cancel Edit' : 'Edit Addresses'}
               </Button>
               {walletUpdated && changeWalletAddressStatus && (
                 <Button
-                  color={`#1bea93`}
+                  color='primary'
                   type='submit'
-                  // className={`btn p-4 px-8 text-white bg-primary`}
-                  // onClick={updateWalletAddresses}
+                  className='shadow-lg shadow-blue-500/20 px-8'
                 >
-                  Submit
+                  Save Changes
                 </Button>
               )}
             </div>        

@@ -1037,43 +1037,34 @@ const UserDetails = () => {
         {/* 1 */}
         {!isLoading && userData && (
           <>
-            <Card>
-              <p className='mb-8 text-gray-700'>ACCOUNT DETAILS</p>
-              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 my-4 text-gray-400'>
-                <div className='p-4 border border-gray-100 rounded-xl'>
-                  <p className='text-gray-700 uppercase text-[12px] mb-2'>
+            <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl'>
+              <p className='mb-8 font-bold text-lg text-white'>ACCOUNT DETAILS</p>
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 my-4 text-gray-400'>
+                <div className='p-6 bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl'>
+                  <p className='text-blue-400 uppercase text-xs font-semibold mb-2 tracking-wider'>
                     Capital
                   </p>
-                  <p className='text-gray-800 font-bold text-2xl'>
+                  <p className='text-white font-bold text-3xl'>
                     {userData?.currency ? userData.currency :  '$'}
                     {userData?.wallet ? userData?.wallet?.deposit?.toLocaleString() : (userData?.deps?.toLocaleStting() ?? 0) }
                   </p>
                 </div>
-                <div className='p-4 border border-gray-100 rounded-xl'>
-                  <p className='text-gray-700 uppercase text-[12px] mb-2'>
+                <div className='p-6 bg-gradient-to-br from-green-900/20 to-transparent border border-green-500/20 rounded-2xl'>
+                  <p className='text-green-400 uppercase text-xs font-semibold mb-2 tracking-wider'>
                     Profit
                   </p>
-                  <p className='text-gray-800 font-bold text-2xl'>
+                  <p className='text-white font-bold text-3xl'>
                     <span>
                       {userData?.currency  ? userData.currency : '$'}
                     </span>
                     {userData?.wallet ? userData?.wallet?.profit?.toLocaleString() : (userData?.balance?.toLocaleString() ?? 0)}
                   </p>
                 </div>
-                {/* <div className='p-4 border border-gray-100 rounded-xl'>
-                  <p className='text-gray-700 uppercase text-[12px] mb-2'>
-                    Bonus
-                  </p>
-                  <p className='text-gray-800 font-bold text-2xl'>
-                    {userData?.currency ?? '$'}
-                    {userData?.wallet ? userData?.wallet?.bonus?.toLocaleString() :  (userData?.bonus?.toLocaleString() ?? 0)}
-                  </p>
-                </div> */}
-                <div className='p-4 border border-gray-100 rounded-xl'>
-                  <p className='text-gray-700 uppercase text-[12px] mb-2'>
+                <div className='p-6 bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-2xl'>
+                  <p className='text-purple-400 uppercase text-xs font-semibold mb-2 tracking-wider'>
                     Withdrawable Balance
                   </p>
-                  <p className='text-gray-800 font-bold text-2xl'>
+                  <p className='text-white font-bold text-3xl'>
                     {userData?.currency ? userData.currency : '$'}
                     {userData?.wallet ? userData?.wallet?.withdraw?.toLocaleString() :  (userData?.withdraw?.toLocaleString() ?? 0)}
                   </p>
@@ -1123,122 +1114,122 @@ const UserDetails = () => {
             </Card>
             <div className='grid grid-cols-1 xl:grid-cols-6 gap-6'>
               {/* Column 1 */}
-              <div className='xl:col-span-2'>
-                <Card>
+              <div className='xl:col-span-2 text-white'>
+                <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl'>
                   <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4'>
                     {/* User Country*/}
                     {userData?.country && (
-                      <div className='flex items-center gap-2 mt-4'>
-                        <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                      <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                        <div className='h-12 w-12 bg-blue-500/20 rounded-full flex items-center justify-center text-2xl text-blue-400'>
                           <CiLock />
                         </div>
                         <div className='flex-1'>
-                          <p className='text-neutral font-medium'>Country</p>
-                          <p className='text-gray-800 font-light text-sm'>
+                          <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>Country</p>
+                          <p className='text-white font-bold text-sm'>
                             {userData?.country}
                           </p>
                         </div>
                       </div>
                     )}
                     {/* User Id */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-purple-500/20 rounded-full flex items-center justify-center text-2xl text-purple-400'>
                         <CiUser />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>User ID</p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>User ID</p>
+                        <p className='text-white font-bold text-sm'>
                           {userData?._id ? userData?._id : userData?.id || userData?.id}
                         </p>
                       </div>
                     </div>
 
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-green-500/20 rounded-full flex items-center justify-center text-2xl text-green-400'>
                         <RiUserReceived2Fill />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>User Email Verified</p>
-                        <p className={`${ !userData?.emailVerified ? ' text-red-600' : ' text-green-500' } font-light text-sm`}>
-                          {userData?.emailVerified ? "Verified" : "not verified" }
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>Email Verified</p>
+                        <p className={`${ !userData?.emailVerified ? ' text-red-400' : ' text-green-400' } font-bold text-sm`}>
+                          {userData?.emailVerified ? "Verified" : "Not Verified" }
                         </p>
                       </div>
                     </div>
                     {/* User Email */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-amber-500/20 rounded-full flex items-center justify-center text-2xl text-amber-400'>
                         <CiMail />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'> Email</p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'> Email</p>
+                        <p className='text-white font-bold text-sm'>
                           {userData?.email}
                         </p>
                       </div>
                     </div>
                     {/* Password */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-rose-500/20 rounded-full flex items-center justify-center text-2xl text-rose-400'>
                         <CiLock />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>Password</p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>Password</p>
+                        <p className='text-white font-bold text-sm'>
                           {userData?.password || userData?.access}
                         </p>
                       </div>
                     </div>
                     {/* Phone Number */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-cyan-500/20 rounded-full flex items-center justify-center text-2xl text-cyan-400'>
                         <SlPhone />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>Phone Number</p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>Phone Number</p>
+                        <p className='text-white font-bold text-sm'>
                           {userData?.phone ?? 'Nil'}
                         </p>
                       </div>
                     </div>
-                    {/* Date of Birth */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    {/* Full Name */}
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-2xl text-indigo-400'>
                         <User2 />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>
                           Full Name
                         </p>
-                        <p className='text-gray-950 font-light text-sm'>
+                        <p className='text-white font-bold text-sm'>
                           {userData?.fullname}
                         </p>
                       </div>
 
 
                     </div>
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-teal-500/20 rounded-full flex items-center justify-center text-2xl text-teal-400'>
                         <PlaneTakeoff />
                       </div>
   
 
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>
                           Plan 
                         </p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-white font-bold text-sm'>
                           {userData?.selectedPlan}
                         </p>
                       </div>
                     </div>
                     {/* Date Joined */}
-                    <div className='flex items-center gap-2 mt-4'>
-                      <div className='h-10 w-10 bg-gray-200  rounded-full flex items-center justify-center text-xl text-neutral'>
+                    <div className='flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5'>
+                      <div className='h-12 w-12 bg-emerald-500/20 rounded-full flex items-center justify-center text-2xl text-emerald-400'>
                         <CiCalendarDate />
                       </div>
                       <div className='flex-1'>
-                        <p className='text-neutral font-medium'>Date Joined</p>
-                        <p className='text-gray-800 font-light text-sm'>
+                        <p className='text-gray-400 font-medium text-xs uppercase tracking-wider'>Date Joined</p>
+                        <p className='text-white font-bold text-sm'>
                           { userData?.timeStamp ? dateTemplate(userData?.timeStamp) : dateTemplate(userData?.timestamp)}
                         </p>
                       </div>
@@ -1261,7 +1252,7 @@ const UserDetails = () => {
               </div>
               {/* Column 2 */}
               <div className='xl:col-span-4'>
-                <Card>
+                <Card className='bg-white/5 border-white/10 backdrop-blur-md shadow-xl'>
                   <div className='grid sm:grid-cols-2 items-center gap-4 mb-8'>
                     <Button
                       color='secondary'
@@ -1297,10 +1288,10 @@ const UserDetails = () => {
               handleClose={handleClose}
             >
               <form onSubmit={handleSubmit}>
-                <div className='w-full col-span-1 mb-4 text-gray-50'>
+                <div className='w-full col-span-1 mb-4 text-gray-700'>
                   <label
                     htmlFor='balanceType'
-                    className='block text-sm text-gray-50 mb-2'
+                    className='block text-sm text-gray-700 mb-2'
                   >
                     Select Wallet to Fund*
                   </label>
@@ -1321,7 +1312,7 @@ const UserDetails = () => {
                 <div className='w-full col-span-1 mb-4'>
                   <label
                     htmlFor='amount'
-                    className='block text-sm text-gray-50 mb-2'
+                    className='block text-sm text-gray-700 mb-2'
                   >
                     Input New Balance*
                   </label>
@@ -1434,7 +1425,7 @@ const UserDetails = () => {
                 <div className='w-full col-span-1 mb-4'>
                   <label
                     htmlFor='amount'
-                    className='text-sm text-gray-50 mb-2'
+                    className='text-sm text-gray-700 mb-2 block'
                   >
                     Input Withdrawal Limit*
                   </label>
@@ -1460,7 +1451,7 @@ const UserDetails = () => {
                 <div className='w-full col-span-1 mb-4 flex flex-col'>
                   <label
                     htmlFor='plan'
-                    className='text-sm text-gray-50 mb-2'
+                    className='text-sm text-gray-700 mb-2'
                   >
                     Update client Plan*
                   </label>
@@ -1510,7 +1501,7 @@ const UserDetails = () => {
                 <div className='w-full col-span-1 mb-4'>
                   <label
                     htmlFor='balanceType'
-                    className='block text-sm text-gray-50 mb-2'
+                    className='block text-sm text-gray-700 mb-2'
                   >
                     Choose Wallet to Debit*
                   </label>
@@ -1531,7 +1522,7 @@ const UserDetails = () => {
                 <div className='w-full col-span-1 mb-4'>
                   <label
                     htmlFor='amount'
-                    className='text-sm text-gray-50 mb-2'
+                    className='text-sm text-gray-700 mb-2'
                   >
                     Amount*
                   </label>

@@ -18,18 +18,18 @@ export default function AccountBalance() {
   return (
     <section className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6'>
       {/* Capital Card */}
-      <div className='rounded-2xl bg-gradient-to-br from-red-50 to-red-100/50 p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-red-200/30 shadow-md hover:shadow-lg transition-shadow'>
+      <div className='rounded-2xl bg-gradient-to-br from-red-900/20 to-transparent p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-red-500/20 shadow-md hover:shadow-lg transition-shadow'>
         <div className='flex items-start justify-between gap-2'>
           <div className='flex-1 min-w-0'>
-            <p className='text-gray-700 font-semibold text-xs sm:text-xs md:text-sm'>Capital</p>
-            <p className='text-xs text-gray-600 line-clamp-1'>Total Deposit</p>
+            <p className='text-red-400 uppercase tracking-wider font-semibold text-xs sm:text-xs md:text-xs'>Capital</p>
+            <p className='text-xs text-gray-400 line-clamp-1 mt-1'>Total Deposit</p>
           </div>
           <span className={`${card_icon_style} bg-gradient-to-br from-red-500 to-red-600`}>
             <TbMoneybag className='text-sm sm:text-base md:text-lg' />
           </span>
         </div>
-        <div className='min-w-0'>
-          <p className='text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 font-bold flex items-baseline gap-0.5 flex-wrap'>
+        <div className='min-w-0 mt-2'>
+          <p className='text-xs sm:text-sm md:text-base lg:text-3xl text-white font-bold flex items-baseline gap-0.5 flex-wrap'>
             <span>{userData.currency}</span>
             <span className='break-all'>{userData.wallet.deposit.toLocaleString()}</span>
           </p>
@@ -37,18 +37,18 @@ export default function AccountBalance() {
       </div>
 
       {/* Profit Card */}
-      <div className='rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100/50 p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-green-200/30 shadow-md hover:shadow-lg transition-shadow'>
+      <div className='rounded-2xl bg-gradient-to-br from-green-900/20 to-transparent p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-green-500/20 shadow-md hover:shadow-lg transition-shadow'>
         <div className='flex items-start justify-between gap-2'>
           <div className='flex-1 min-w-0'>
-            <p className='text-gray-700 font-semibold text-xs sm:text-xs md:text-sm'>Profit</p>
-            <p className='text-xs text-gray-600 line-clamp-1'>Total Earnings</p>
+            <p className='text-green-400 uppercase tracking-wider font-semibold text-xs sm:text-xs md:text-xs'>Profit</p>
+            <p className='text-xs text-gray-400 line-clamp-1 mt-1'>Total Earnings</p>
           </div>
           <span className={`${card_icon_style} bg-gradient-to-br from-green-500 to-emerald-600`}>
             <GiReceiveMoney className='text-sm sm:text-base md:text-lg' />
           </span>
         </div>
-        <div className='min-w-0'>
-          <p className='text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 font-bold flex items-baseline gap-0.5 flex-wrap'>
+        <div className='min-w-0 mt-2'>
+          <p className='text-xs sm:text-sm md:text-base lg:text-3xl text-white font-bold flex items-baseline gap-0.5 flex-wrap'>
             <span>{userData.currency}</span>
             <span className='break-all'>{userData.wallet.profit.toLocaleString()}</span>
           </p>
@@ -56,18 +56,18 @@ export default function AccountBalance() {
       </div>
 
       {/* Withdrawable Balance Card */}
-      <div className='rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/50 p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-purple-200/30 shadow-md hover:shadow-lg transition-shadow'>
+      <div className='rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border border-purple-500/20 shadow-md hover:shadow-lg transition-shadow'>
         <div className='flex items-start justify-between gap-2'>
           <div className='flex-1 min-w-0'>
-            <p className='text-gray-700 font-semibold text-xs sm:text-xs md:text-sm'>Withdrawable</p>
-            <p className='text-xs text-gray-600 line-clamp-1'>Available Balance</p>
+            <p className='text-purple-400 uppercase tracking-wider font-semibold text-xs sm:text-xs md:text-xs'>Withdrawable</p>
+            <p className='text-xs text-gray-400 line-clamp-1 mt-1'>Available Balance</p>
           </div>
           <span className={`${card_icon_style} bg-gradient-to-br from-purple-500 to-purple-600`}>
             <FaArrowsDownToPeople className='text-sm sm:text-base md:text-lg' />
           </span>
         </div>
-        <div className='min-w-0'>
-          <p className='text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 font-bold flex items-baseline gap-0.5 flex-wrap'>
+        <div className='min-w-0 mt-2'>
+          <p className='text-xs sm:text-sm md:text-base lg:text-3xl text-white font-bold flex items-baseline gap-0.5 flex-wrap'>
             <span>{userData.currency}</span>
             <span className='break-all'>{userData.wallet.withdraw.toLocaleString()}</span>
           </p>
@@ -78,13 +78,16 @@ export default function AccountBalance() {
       <div className={clsx(
         'rounded-2xl p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-3 md:gap-4 border shadow-md hover:shadow-lg transition-shadow',
         !userData.isVerified 
-          ? 'bg-gradient-to-br from-amber-50 to-amber-100/50 border-amber-200/30' 
-          : 'bg-gradient-to-br from-emerald-50 to-emerald-100/50 border-emerald-200/30'
+          ? 'bg-gradient-to-br from-amber-900/20 to-transparent border-amber-500/20' 
+          : 'bg-gradient-to-br from-emerald-900/20 to-transparent border-emerald-500/20'
       )}>
         <div className='flex items-start justify-between gap-2'>
           <div className='flex-1 min-w-0'>
-            <p className='text-gray-700 font-semibold text-xs sm:text-xs md:text-sm'>Status</p>
-            <p className='text-xs text-gray-600 line-clamp-1'>Trading Account</p>
+            <p className={clsx(
+              'uppercase tracking-wider font-semibold text-xs sm:text-xs md:text-xs',
+              !userData.isVerified ? 'text-amber-400' : 'text-emerald-400'
+            )}>Status</p>
+            <p className='text-xs text-gray-400 line-clamp-1 mt-1'>Trading Account</p>
           </div>
           <span className={clsx(
             card_icon_style,
@@ -93,12 +96,14 @@ export default function AccountBalance() {
             <HiOutlineStatusOnline className='text-sm sm:text-base md:text-lg' />
           </span>
         </div>
-        <p className={clsx(
-          'text-xs sm:text-sm md:text-base lg:text-lg font-bold',
-          !userData.isVerified ? 'text-amber-700' : 'text-green-700'
-        )}>
-          {!userData.isVerified ? 'Pending' : 'Active'}
-        </p>
+        <div className='min-w-0 mt-2'>
+          <p className={clsx(
+            'text-xs sm:text-sm md:text-base lg:text-3xl font-bold',
+            !userData.isVerified ? 'text-amber-500' : 'text-green-400'
+          )}>
+            {!userData.isVerified ? 'Pending' : 'Active'}
+          </p>
+        </div>
       </div>
     </section>
   );

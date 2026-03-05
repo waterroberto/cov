@@ -95,9 +95,9 @@ export default function UsersTable({
   }, [users, searchValue]);
 
   return (
-    <div className='card rounded-xl p-4 bg-primary'>
-      <div className='mb-8 p-4'>
-        <p className='font-bold text-xl text-gray-700 mb-4'>All Users</p>
+    <div className='card rounded-2xl p-6 bg-[#090D1F] shadow-2xl border border-white/10'>
+      <div className='mb-8 p-4 bg-white/5 rounded-xl border border-white/5 backdrop-blur-sm'>
+        <p className='font-bold text-2xl text-white mb-4'>All Users</p>
         <TextInput
           required
           leftIcon={<CiSearch />}

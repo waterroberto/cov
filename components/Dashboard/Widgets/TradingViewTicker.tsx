@@ -157,7 +157,7 @@ export default function TradingViewTicker() {
     s = symbols["stocks"]
   }
   return (
-    <div className='mb-8'>
+    <div className=''>
       <TickerTape
         widgetProps={{
           showSymbolLogo: false,
