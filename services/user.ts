@@ -1,5 +1,6 @@
-import { db, storage } from '@/config/firebase.config';
-import { IDeposit, InvestmentType, IWITHDRAWAL } from '@/interface';
+import { auth, db, storage } from '@/config/firebase.config';
+import { IDeposit, InvestmentType, IWITHDRAWAL, UserDataType } from '@/interface';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import generateUniqueCode from '@/utils/generateCode';
 import {
   Timestamp,
@@ -38,6 +39,31 @@ export const UserService = {
     console.error("Error sending email:", error);
     return { success: false, message: "Failed to send email" };
   }
+  },
+
+  registerUser: async function(email:string, password:string) {
+    try {
+      const userRef = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return { uid: userRef.user.uid };
+    } catch (error) {
+       console.error("Error registering user", error);
+       throw error;
+    }
+  },
+
+  setUserData: async function(uid: string, data: any) {
+    try {
+      const ref = doc(db, 'users', uid);
+      await setDoc(ref, data);
+      return { success: true };
+    } catch (error) {
+       console.error("Error setting user data", error);
+       throw error;
+    }
   },
 
   updateUserPassword: async (body: any) => {

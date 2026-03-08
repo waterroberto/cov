@@ -45,6 +45,7 @@ export const user_links = [
 
 export const admin_links = [
   { name: 'dashboard', icon: <MdOutlineDashboard />, page: '/admin' },
+  { name: 'Add User', icon: <HiOutlineUser />, page: '/admin/users/add' },
   { name: 'VAT Codes', icon: <LuQrCode />, page: '/admin/vat-codes' },
   { name: 'Add Wallet Address', icon: <HiWallet  />, page: '/admin/wallets' },
   {

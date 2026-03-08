@@ -84,7 +84,7 @@ function KYCContent() {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [router]);
 
 
 

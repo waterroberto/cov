@@ -33,6 +33,7 @@ interface IFormData {
   currency: ICURRENCY;
   // plan: IPackage;
   plan: string;
+  referralCode: string;
 }
 
 const initialValues = {
@@ -47,6 +48,7 @@ const initialValues = {
     code: '',
   },
   plan: "",
+  referralCode: '',
 };
 
 const schema = Yup.object({
@@ -60,7 +62,8 @@ const schema = Yup.object({
     .required()
     .label('Currency'),
 
-  plan: Yup.string().required()
+  plan: Yup.string().required(),
+  referralCode: Yup.string().optional()
 });
 
 const Register = () => {
@@ -582,19 +585,41 @@ const Register = () => {
                 </div>
 
                 {/* Row 5: Terms and Conditions */}
-                <div className='flex items-center gap-3 py-4 px-4 rounded-lg bg-slate-700/30 border border-slate-600/50'>
-                  <input
-                    id='termsAndConditions'
-                    type='checkbox'
-                    className='w-5 h-5 cursor-pointer accent-blue-500 flex-shrink-0'
-                    checked={termsAndConditions}
-                    onChange={() => {
-                      setTermsAndConditions((prev) => !prev);
-                    }}
-                  />
-                  <label htmlFor='termsAndConditions' className='text-sm text-slate-300 cursor-pointer'>
-                    I agree to the <span className='text-blue-400 hover:text-blue-300'>Terms & Conditions</span>
-                  </label>
+                <div className='w-full flex flex-col gap-4 relative'>
+                  <div className='w-full flex flex-col gap-2'>
+                    <label
+                      htmlFor='referralCode'
+                      className='font-semibold text-sm text-slate-300'
+                    >
+                      Referral Name (Optional)
+                    </label>
+                    <TextInput
+                      type='text'
+                      id='referralCode'
+                      name='referralCode'
+                      placeholder='Enter referral name'
+                      className='px-4 py-3 outline-none border border-slate-600 w-full rounded-lg text-white bg-slate-700/50 placeholder-slate-500 focus:border-blue-500 focus:bg-slate-700 transition-all duration-200'
+                      dark
+                      onChange={handleChange}
+                      error={errors.referralCode}
+                    />
+                  </div>
+                  <div className='flex items-center gap-3 py-4 px-4 rounded-lg bg-slate-700/30 border border-slate-600/50'>
+                    <input
+                      id='termsAndConditions'
+                      type='checkbox'
+                      className='w-5 h-5 cursor-pointer accent-blue-500 flex-shrink-0'
+                      checked={termsAndConditions}
+                      onChange={() => {
+                        setTermsAndConditions((prev) => !prev);
+                      }}
+                    />
+                    <label htmlFor='termsAndConditions' className='text-sm text-slate-300 cursor-pointer'>
+                      I agree to the <Link href='/terms-condition' className='text-blue-400 hover:text-blue-300'>Terms & Conditions</Link>
+                    </label>
+                  </div>
+
+
                 </div>
 
                 {/* Row 6: Submit Button */}

@@ -175,7 +175,7 @@ const ForgotPassword = () => {
       }).then(() => {
 
         toast.success('An Otp to reset your password has been sent');
-        router.push(`/auth/otp?userId=${user._id}&fullname=${user.fullname}&email=${encodeURIComponent(user.email)}&page=changepassword`)
+        router.push(`/auth/otp`)
         setIsLoading(false);
       }).catch((err) => {
         console.log(err)
