@@ -118,13 +118,13 @@ export default function RecentTransactions() {
           <p className="text-gray-800 font-medium text-lg mb-4">
             Recent Deposits
           </p>
-          <Table data={deposits} headers={tableHeaders} hidePagination />
+          <Table data={deposits} headers={tableHeaders} dataKey="full_name" key='full_name' hidePagination  />
         </div>
         <div className="overflow-auto">
           <p className="text-gray-800 font-medium text-lg mb-4">
             Recent Withdrawals
           </p>
-          <Table data={withdrawals} headers={tableHeaders} hidePagination />
+          <Table data={withdrawals} headers={tableHeaders} dataKey="full_name" key='full_name' hidePagination />
         </div>
       </div>
     </section>
