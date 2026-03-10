@@ -42,7 +42,7 @@ export default function TestimonialCard({ testimonial, index }: any) {
         animationDelay: `${index * 120}ms`,
         animationFillMode: "both",
       }}
-      className="card-entrance"
+      className="card-entrance max-h-96 w-full"
     >
       {/* ── Thumbnail / Video background ── */}
       <div style={{
