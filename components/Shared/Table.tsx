@@ -48,7 +48,6 @@ export default function Table(props: TableProps) {
           first={0}
           rows={20}
           rowsPerPageOptions={[10, 25, 50]}
-          dataKey="_id"
           sortField="date"
           sortOrder={-1}
           emptyMessage={
@@ -66,15 +65,18 @@ export default function Table(props: TableProps) {
             ></Column>
           )}
 
-          {headers.map((col) => (
-            <Column
-              key={col.field}
-              field={col.field}
-              header={col.title}
-              body={col.body || bodyTemplate}
-              className="text-sm"
-            />
-          ))}
+          {headers.map((col) => {
+          return  (
+             <Column
+               key={col.field}
+               field={col.field}
+               header={col.title}
+               body={col.body || bodyTemplate}
+               className="text-sm"
+             />
+             )
+          }
+          )}
         </DataTable>
       </div>
 
