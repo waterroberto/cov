@@ -1,9 +1,9 @@
 
-import { createContext, useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db, auth } from "@/config/firebase.config";
+import { auth, db } from "@/config/firebase.config";
 import { UserDataType } from "@/interface";
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { createContext, useEffect, useState } from "react";
 
 
 type IAuthAdmin = {
@@ -54,7 +54,7 @@ export const AdminDataProvider = ({ children }: {children:React.ReactNode}) => {
       }
       setFetchingData(false);
     });
-  }, [auth]);
+  }, []);
 
 
 
