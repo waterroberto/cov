@@ -34,21 +34,51 @@ export const currencies = [
   { code: 'Zambian Kwacha', symbol: 'ZK' },
 ];
 
+// export const plans = [
+//   { plan: 'Starter - From $3,500', id: 1 },
+//   { plan: 'Classic - From $5,500', id: 2 },
+//   { plan: 'Pro - From $8,000', id: 3 },
+//   { plan: 'Executive - From $11,500', id: 4 },
+//   { plan: 'Premium - From $25,000', id: 5 },
+//   { plan: 'Retirement - From $10,000', id: 6 },
+//   { plan: 'Installmental', id: 7 },
+//   { plan: 'Monthly', id: 8 },
+//   { plan: 'Luxury - From $50,000', id: 9 },
+//   { plan: 'VIP - From $75,000', id: 10 },
+//   { plan: 'VIP Luxury - From $150,000', id: 11 },
+//   { plan: 'Silver Platinum - From $350,000', id: 12 },
+//   { plan: 'Gold Platinum - From $500,000', id: 13 },
+//   { plan: 'VIP Gold Platinum - From $750,000', id: 14 },
+//   { plan: 'Gold Luxury - From $1,000,000', id: 15 },
+//   { plan: 'Retirement Gold - From $25,000', id: 16 },
+// ];
+
 export const plans = [
-  { plan: 'Starter - From $3,500', id: 1 },
-  { plan: 'Classic - From $5,500', id: 2 },
-  { plan: 'Pro - From $8,000', id: 3 },
-  { plan: 'Executive - From $11,500', id: 4 },
-  { plan: 'Premium - From $25,000', id: 5 },
-  { plan: 'Retirement - From $10,000', id: 6 },
-  { plan: 'Installmental', id: 7 },
-  { plan: 'Monthly', id: 8 },
-  { plan: 'Luxury - From $50,000', id: 9 },
-  { plan: 'VIP - From $75,000', id: 10 },
-  { plan: 'VIP Luxury - From $150,000', id: 11 },
-  { plan: 'Silver Platinum - From $350,000', id: 12 },
-  { plan: 'Gold Platinum - From $500,000', id: 13 },
-  { plan: 'VIP Gold Platinum - From $750,000', id: 14 },
-  { plan: 'Gold Luxury - From $1,000,000', id: 15 },
-  { plan: 'Retirement Gold - From $25,000', id: 16 },
+  { plan: 'Starter - From $3,500', value: 1 },
+  { plan: 'Classic - From $5,500', value: 2 },
+  { plan: 'Pro - From $8,000', value: 3 },
+  { plan: 'Executive - From $11,500', value: 4 },
+  { plan: 'Premium - From $25,000', value: 5 },
+  { plan: 'Retirement - From $10,000', value: 6 },
+
+  { plan: 'Monthly', value: '' },
+  { plan: 'Luxury - From $50,000', value: 8 },
+  { plan: 'VIP - From $75,000', value: 9 },
+  { plan: 'VIP Luxury - From $150,000', value: 10 },
+  { plan: 'Silver Platinum - From $350,000', value: 11 },
+  { plan: 'Gold Platinum - From $500,000', value: 12 },
+  { plan: 'VIP Gold Platinum - From $750,000', value: 13 },
+  { plan: 'Gold Luxury - From $1,000,000', value: 14 },
+  { plan: 'Retirement Gold - From $25,000', value: 15 },
+  
+  // Installmental weekly
+  { plan: 'Installmental - $500 / week', value: 16 },
+  { plan: 'Installmental - $1,000 / week', value: 17 },
+  { plan: 'Installmental - $2,000 / week', value: 18 },
+  
+  // Installmental monthly
+  // { plan: 'Installmental - $2,500 / month', value: 19 },
+  { plan: 'Installmental - $3,500 / month', value: 20 },
+  { plan: 'Installmental - $4,000 / month', value: 21 },
+  { plan: 'Installmental - $5,000 / month', value: 22 },
 ];
