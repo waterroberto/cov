@@ -1,5 +1,5 @@
 'use client'
-import logo from '@/assets/cov-logo.svg';
+import logo from '@/assets/Group 11.svg';
 import Image from 'next/image';
 import React from 'react';
 import { usePathname } from 'next/navigation';

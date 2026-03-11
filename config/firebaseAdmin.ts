@@ -1,24 +1,23 @@
-// import admin from "firebase-admin";
+import admin from "firebase-admin";
 
+const serviceAccount = {
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+};
 
-// // import serviceAccount from '@/services/hm-finance-llc-firebase-adminsdk-fbsvc-08ee9c6810.json'
-// // const serviceAccount = JSON.parse(process.env.NEXT_FIREBASE_ADMIN_SDK || "{}");
-// // console.log(serviceAccount, "admin file")
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    });
+    console.log("Firebase Admin initialized successfully");
+  } catch (error) {
+    console.error("Firebase Admin initialization error", error);
+  }
+}
 
-// const serviceAccount = require("../services/hm-finance-llc-firebase-adminsdk-fbsvc-93c7be36fe.json");
+const adminDb = admin.firestore();
+const adminAuth = admin.auth();
 
-
-// if (!admin.apps.length) {
-//   admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount),
-//     databaseURL: "https:/hm-finance-llc.firebaseio.com"
-//     // credential: admin.credential.cert({
-//     //   projectId: process.env.NEXT_ADMIN_PROJECT_ID,
-//     //   privateKey: process.env.NEXT_ADMIN_PRIVATE_KEY!.replace(/\\n/g, '\n'),
-//     //   clientEmail: process.env.NEXT_ADMIN_EMAIL
-//     // }),
-//   });
-// }
-// const db = admin.firestore(); // Firestore instance
-
-// export { db, admin };
+export { adminDb, adminAuth, admin };

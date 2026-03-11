@@ -1,4 +1,5 @@
 import ClientProvider from "@/components/Providers/ClientProvider";
+import SmartsuppChat from "@/components/Global/SmartsuppChat";
 import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import 'primeicons/primeicons.css';
@@ -43,10 +44,13 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased`}
         >
+        <SmartsuppChat />
         <ClientProvider>
-        {children}
-      </ClientProvider>
+          {children}
+        </ClientProvider>
       </body>
     </html>
   );
 }
+
+

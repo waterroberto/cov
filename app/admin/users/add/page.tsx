@@ -25,6 +25,7 @@ const initialValues = {
   },
   plan: "",
   referralCode: '',
+  registrationDate: '',
 };
 
 const schema = Yup.object({
@@ -38,7 +39,8 @@ const schema = Yup.object({
     .required()
     .label('Currency'),
   plan: Yup.string().required(),
-  referralCode: Yup.string().optional()
+  referralCode: Yup.string().optional(),
+  registrationDate: Yup.string().optional(),
 });
 
 const AdminAddUser = () => {
@@ -109,7 +111,7 @@ const AdminAddUser = () => {
             investments: [],
             isAdmin: false,
             isVerified: true, // Bypass all checks
-            timestamp: Timestamp.now(),
+            timestamp: values.registrationDate ? Timestamp.fromDate(new Date(values.registrationDate)) : Timestamp.now(),
             nextOfKin: {
               email: '',
               gender: '',
@@ -290,12 +292,41 @@ const AdminAddUser = () => {
             </div>
           </div>
 
+          {/* Row 5: Referral and Registration Date */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div className='space-y-2'>
+              <label className='text-sm font-semibold text-slate-300'>Referral Name (Optional)</label>
+              <TextInput
+                type='text'
+                id='referralCode'
+                placeholder='Enter referral name'
+                dark
+                onChange={handleChange}
+                value={values.referralCode}
+                error={errors.referralCode}
+              />
+            </div>
+            <div className='space-y-2'>
+              <label className='text-sm font-semibold text-slate-300'>Registration Date (Optional)</label>
+              <TextInput
+                type='datetime-local'
+                id='registrationDate'
+                placeholder='Select Date'
+                dark
+                onChange={handleChange}
+                value={values.registrationDate}
+                error={errors.registrationDate}
+              />
+            </div>
+          </div>
+
           <div className='pt-6'>
             <Button type='submit' color='primary_2' loading={isLoading} block>
               Register Client Account
             </Button>
           </div>
         </form>
+
       </div>
     </div>
   );

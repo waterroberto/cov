@@ -6,6 +6,7 @@ import Modal from '@/components/Global/Modal';
 import TextInput from '@/components/Global/TextInput';
 import TransactionHistory from '@/components/Shared/TransactionHistory';
 import { db } from '@/config/firebase.config';
+import UserDataContext from '@/context/UserDataContext';
 import { TransactionType, UserDataType, Wallet } from '@/interface';
 import { UserService } from '@/services/user';
 import { plans } from '@/static/currencies';
@@ -22,7 +23,7 @@ import { PlaneTakeoff, User2 } from 'lucide-react';
 import moment from 'moment';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
-import React, { FormEvent, useEffect, useState,useMemo } from 'react';
+import React, { FormEvent, useEffect, useState,useMemo, useContext } from 'react';
 import toast from 'react-hot-toast';
 import { CiCalendarDate, CiLock, CiMail, CiUser } from 'react-icons/ci';
 import { RiUserReceived2Fill } from 'react-icons/ri';
@@ -31,7 +32,8 @@ import { SlPhone } from 'react-icons/sl';
 const UserDetails = () => {
   const router = useRouter();
   const params = useParams();
-
+  
+  const { userData: adminUser } = useContext(UserDataContext);
   const [amount, setAmount] = useState('');
   const [userData, setUserData] = useState<UserDataType | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -294,8 +296,8 @@ const UserDetails = () => {
     try {
       toast.loading('Deleting user...');
       const res = await fetch('/api/firebase-admin', {
-        method: 'POST',
-        body: JSON.stringify({ uid: userData?._id ? userData?._id : userData?.id }),
+        method: 'DELETE',
+        body: JSON.stringify({ uid: userData?._id ? userData?._id : userData?.id, action: 'deleteUser', userId: adminUser?._id }),
       });
 
       toast.dismiss();
