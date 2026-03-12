@@ -44,7 +44,6 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased`}
         >
-        <SmartsuppChat />
         <ClientProvider>
           {children}
         </ClientProvider>

@@ -13,7 +13,7 @@ export default function SmartsuppChat() {
   useEffect(() => {
     // Initialize Smartsupp configuration
     window._smartsupp = window._smartsupp || {};
-    window._smartsupp.key = process.env.NEXT_PUBLIC_SMARTSUPP_KEY || 'key';
+    window._smartsupp.key = process.env.NEXT_PUBLIC_SMARTSUPP_KEY;
 
     // Load Smartsupp script if not already loaded
     if (!window.smartsupp) {
