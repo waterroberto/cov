@@ -20,7 +20,7 @@ const features = [
   {
     icon: <MdContactSupport />,
     title: "Diversity",
-    body: "Invest in diverse commodities and assets with as little as $10,000 using HM Agrivest's easy-to-use platform.",
+    body: "Invest in diverse commodities and assets with as little as $10,000 using CAP Ventures's easy-to-use platform.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function WhyChooseUs() {
           <BsStar /> Why Traders Choose Our Online Platform
         </span>
         <p className="text-primary text-center text-2xl md:text-4xl lg:text-5xl font-bold gradient-text">
-          Why Choose HM Agrivest
+          Why Choose CAP Ventures
         </p>
         <p className="sm:text-lg text-center text-gray-600 my-4 max-w-3xl mx-auto">
           At CapVentures, we believe in the enduring power of strength and
