@@ -4,23 +4,25 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { randomUUID } from "crypto"
-
-interface Props {
-  data: {title: string, subTitle: string}[]
+interface AccordionItemData {
+  title: string;
+  subTitle: string;
 }
 
-export function AccordionDemo({data}: Props) {
+interface AccordionProps {
+  data: AccordionItemData[];
+}
+
+export function AccordionDemo({data}: AccordionProps) {
   return (
     <Accordion type="single" collapsible className="w-full my-2">
-      {data.map(a => (
-      <AccordionItem key={a.title + randomUUID()} value={a.title + randomUUID()}>
+      {data.map((a: AccordionItemData, index: number) => (
+      <AccordionItem key={index} value={`item-${index}`}>
         <AccordionTrigger>{a.title}</AccordionTrigger>
         <AccordionContent>
           {a.subTitle}
         </AccordionContent>
       </AccordionItem>
-
       ))}
     </Accordion>
   )

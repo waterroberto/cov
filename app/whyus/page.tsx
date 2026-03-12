@@ -58,7 +58,7 @@ const FaqData = [
       'CAP VENTURES bridges the gap for investors seeking profitable opportunities but lacking the expertise or time to navigate complex markets. By offering diversified investment options across commodities, stocks, and other high-value assets, we eliminate the barriers to entry and provide a seamless, expertly managed experience. Our platform ensures consistent returns by leveraging data-driven insights, strategic market analysis, and risk management techniques, reducing uncertainty and emotional decision-making. Additionally, we empower investors with exclusive financial tools, educational resources, and passive income opportunities, enabling them to grow their wealth confidently and efficiently.'
   },
   {
-    title: 'Why can`t I pass Level 1 verification?',
+    title: "Why can't I pass Level 1 verification?",
     subTitle:
       'Users must upload a valid document as stated, before they can be verified to higher levels. Users get an email stating if their account was verified or not so make sure your email is valid and active. ACCOUNTS ARE DELETED IN 7 DAYS IF NOT VERIFIED.',
   },
@@ -81,9 +81,9 @@ export default function WhyUsPage() {
       <Navbar />
       <main>
         <section className="items-center gap-10 bg-primary pt-20 relative overflow-hidden  md:gap-8 lg:gap-20 grid grid-cols-1 lg:grid-cols-5 w-full">
-          <div className='space-y-10 lg:col-span-3 order-2 lg:order-1 p-4 sm:pl-16 lg:pl-32 pt-10'>
-            <h2 className='text-3xl md:text-4xl font-medium text-gray-50'>{`CapVentures is the Professional's Gateway to the World's Markets`}</h2>
-          </div>
+            <h2 className='text-3xl md:text-4xl font-black text-gray-50 leading-tight'>
+              {"CapVentures: The Professional's Gateway to Global Markets"}
+            </h2>
           <div className='lg:col-span-2 order-1 lg:order-2'>
           <Image alt='whys hero us image' src={whyUsImage} className='w-full h-full object-contain md:object-cover' />
           </div>
@@ -119,7 +119,7 @@ export default function WhyUsPage() {
           className=' text-gray-50 font-bold text-center text-3xl sm:text-5xl'
           data-aos='fade-up'
         >
-          Our Company`s Open Statistics
+          {"Our Company's Open Statistics"}
         </h2>
         <h4
           className=' text-gray-50 mt-1 mb-4 font-light text-center text-xl sm:text-2xl'
@@ -152,8 +152,10 @@ export default function WhyUsPage() {
 
         <section className='w-full bg-[#0078FF]'>
           <div className=' w-full  md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 flex flex-col items-center text-gray-200 gap-5'>
-            <p className=' text-2xl font-semibold text-center'>{`"I saw a need to offer people the opportunity to invest in Commodities, Stocks, etc. without putting up huge amounts of capital."`}</p>
-            <p className=' text-lg font-bold'>John Chriswood</p>
+            <p className=' text-2xl font-semibold text-center italic'>
+              {`"I saw a need to offer people the opportunity to invest in Commodities, Stocks, and other high-value assets without requiring massive capital."`}
+            </p>
+            <p className=' text-lg font-bold'>— John Chriswood</p>
           </div>
         </section>
           

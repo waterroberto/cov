@@ -1,68 +1,126 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/retirement-plan-hero-2.jpg'
+import retirementAbout from '@/assets/retirement-plan-hero-2.jpg';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { BsShieldCheck, BsGraphUp, BsHouseDoor } from 'react-icons/bs';
+import { FaFingerprint, FaHandsHelping, FaRegLightbulb } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
     title: "Why should I start planning for retirement early?",
     subTitle: "Starting early allows you to take advantage of compound interest, meaning your investments have more time to grow. The sooner you start, the less you need to invest each month to reach your retirement goals."
   },
   {
-    title: " How much should I save for retirement?",
-    subTitle: "A general rule is to save at least 15% of your income annually. However, the exact amount depends on factors like your expected lifestyle, inflation, and retirement age. Using a retirement calculator can help estimate your needs."
+    title: "How much should I save for retirement?",
+    subTitle: "A general rule is to save at least 15% of your income annually. However, the exact amount depends on factors like your expected lifestyle, inflation, and retirement age. Our experts can help you calculate your specific needs."
   },
   {
     title: "What investment options are best for retirement?",
-    subTitle: "Common options include 401(k) plans, IRAs (Roth & Traditional), mutual funds, stocks, bonds, and annuities. Diversifying your portfolio ensures a balance between risk and growth."
+    subTitle: "We offer a diverse range of options including traditional and Roth IRAs, index funds, and customized stock portfolios. Diversifying your portfolio ensures a balance between risk and long-term growth."
   },
   {
     title: "How do I protect my retirement savings from inflation?",
-    subTitle: "Investing in stocks, real estate, and inflation-protected securities (TIPS) can help. Keeping a well-diversified portfolio and adjusting investments over time ensures your purchasing power remains strong."
+    subTitle: "Investing in tangible assets, real estate, and equity-based funds can help. We provide strategies to ensure your purchasing power remains strong throughout your retirement years."
+  },
+];
+
+const features = [
+  {
+    icon: <FaFingerprint />,
+    title: "Personalized Strategy",
+    description: "Every retirement journey is unique. We craft bespoke investment plans tailored to your specific financial goals and risk tolerance."
   },
   {
-    title: " What’s a good retirement age?",
-    subTitle: "The typical retirement age is between 60-67, but it depends on your financial stability and personal goals. Some choose early retirement (before 60), while others work longer for additional security."
+    icon: <FaHandsHelping />,
+    title: "Expert Guidance",
+    description: "Benefit from the wisdom of seasoned financial advisors who help you navigate market complexities and stay on track."
   },
-]
+  {
+    icon: <FaRegLightbulb />,
+    title: "Smart Diversification",
+    description: "We optimize your portfolio across various asset classes to maximize returns while minimizing potential downsides."
+  }
+];
 
-
-export default function RetirementPage  () {
+export default function RetirementPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Secure Your <span className="text-blue-600">Future</span> with Confidence
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Retirement planning is about more than just saving—{"it's"} about ensuring your lifelong hard work translates into a secure and fulfilling future. At Capital Online Ventures, we provide the path to financial freedom.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Lifelong Income", desc: "Develop a plan that provides a steady, reliable stream of income for as long as you need it." },
+                  { title: "Risk Management", desc: "Protect your hard-earned savings from market volatility and economic uncertainty." },
+                  { title: "Legacy Planning", desc: "Ensure your wealth is preserved and passed on according to your wishes." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1">
+                      <BsShieldCheck size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Retirement planning</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col">
-            <p>
-              {`Retirement planning involves determining retirement income goals and what's needed to achieve those goals. Retirement planning includes identifying income sources, sizing up expenses, implementing a savings program, and managing assets and risk. Future cash flows are estimated to gauge whether the retirement income goal is possible.`}
-            </p>
-            <br />
-            <p>
-              {`You can start at any time, but it works best if you factor it into your financial planning as early as possible. That’s the best way to ensure a safe, secure—and fun—retirement. The fun part is why it makes sense to pay attention to the serious and perhaps boring part: planning how you’ll get there.`}
-
-            </p>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={retirementAbout}
+                alt="Retirement Planning"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Why Plan with Us?"
+        subtitle="Experience a holistic approach to retirement that prioritizes your peace of mind and long-term security."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Retirement <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Find the answers to your most pressing questions about securing your financial future.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

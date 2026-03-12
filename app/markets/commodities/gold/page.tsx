@@ -1,73 +1,126 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/hm-gold.jpg'
+import goldAbout from '@/assets/hm-gold.jpg';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { GiGoldBar, GiCoins } from 'react-icons/gi';
+import { BsShieldCheck, BsGraphUp, BsShieldLock } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
     title: "Why should I invest in gold?",
-    subTitle: "Gold has historically been a safe-haven asset, protecting investors from inflation, currency fluctuations, and economic instability. With CAP VENTURES, you can seamlessly invest in gold and diversify your portfolio with a time-tested store of value."
+    subTitle: "Gold has historically been a safe-haven asset, protecting investors from inflation, currency fluctuations, and economic instability. It acts as a reliable store of value when other markets are volatile."
   },
   {
-    title: "How does CAP VENTURES make gold investment easier?",
-    subTitle: "CAP VENTURES provides a secure and user-friendly platform for investing in gold without the complexities of physical storage. Our market insights, expert guidance, and seamless transactions ensure a hassle-free investment experience."
+    title: "How does Capital Online Ventures make gold investment easier?",
+    subTitle: "We provide secondary markets for gold-backed assets, allowing you to gain exposure to gold prices without the high costs and security risks of physical storage."
   },
   {
     title: "Is gold a good long-term investment?",
-    subTitle: "Gold retains value over time and often appreciates during market downturns. It serves as a hedge against inflation and economic crises, making it a strong asset for long-term wealth preservation."
+    subTitle: "Gold retains purchasing power over decades and often appreciates during market downturns, making it a critical component of any diversified long-term portfolio."
   },
   {
     title: "Can I invest in gold with a small budget?",
-    subTitle: "Yes! With CAP VENTURES, you don’t need large capital to start investing in gold. Our flexible investment options allow you to gain exposure to the gold market at various price points, making it accessible to all investors."
+    subTitle: "Yes, our fractional investment options allow you to start building your gold position with manageable amounts, making institutional-grade assets accessible to everyone."
+  },
+];
+
+const features = [
+  {
+    icon: <GiGoldBar />,
+    title: "Safe Haven Asset",
+    description: "Protect your wealth with one of the most reliable stores of value in human history, essential for times of economic uncertainty."
   },
   {
-    title: "How does gold compare to stocks as an investment?",
-    subTitle: "Unlike stocks, gold is a tangible asset that isn't directly affected by corporate performance or market speculation. While stocks offer higher growth potential, gold provides stability, acting as a safety net during market volatility."
+    icon: <BsShieldLock />,
+    title: "Secure Custody",
+    description: "Your gold-backed investments are held in high-security, insured facilities, ensuring your assets are protected at all times."
   },
   {
-    title: "Can I withdraw or sell my gold investment anytime?",
-    subTitle: "Yes, CAP VENTURES offers liquidity options that allow you to sell your gold investments when needed. We ensure transparent pricing and seamless transactions so you can access your funds at your convenience."
+    icon: <BsGraphUp />,
+    title: "Portfolio Balance",
+    description: "Reduce overall portfolio risk by adding an asset that historically has a low correlation with traditional stocks and bonds."
   }
 ];
 
-
-export default function GoldPage  () {
+export default function GoldPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Master the Timeless Value of <span className="text-blue-600">Gold</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Gold has remained a standard of wealth for centuries. At Capital Online Ventures, we provide you with modern, secure, and efficient ways to integrate this precious metal into your investment strategy.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Inflation Protection", desc: "Gold historically maintains its value and purchasing power as fiat currencies fluctuate." },
+                  { title: "Global Liquidity", desc: "Access a market that is active 24/7 across the globe, ensuring you can move in and out of positions easily." },
+                  { title: "Strategic Diversification", desc: "Enhance your portfolio's resilience by adding an asset that performs well during market stress." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center mt-1">
+                      <GiGoldBar size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Gold Investment</h2>
-        <div className="grid grid-cols-1 grid-flow-dense lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col order-2 sm:order-1">
-            <p>
-                   {`Gold has remained one of the most reliable investments for centuries, offering stability and security during economic uncertainties. It serves as a hedge against inflation, currency devaluation, and stock market fluctuations, making it a preferred choice for long-term wealth preservation. As global demand for gold continues to grow, its value remains strong across different financial cycles.`}
-
-            </p>
-            <br />
-            <p>
-                    {`At CAP VENTURES, we provide seamless access to gold investment opportunities, allowing individuals to diversify their portfolios with this precious metal. Whether you're a seasoned investor or just starting, our platform offers a secure and transparent way to invest in gold. With real-time market insights and expert guidance, you can make informed decisions and maximize your returns.`}
-
-            </p>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={goldAbout}
+                alt="Gold Investment"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover order-1 sm:order-2"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Why Invest in Gold?"
+        subtitle="Leverage the stability of precious metals with the convenience of our advanced trading platform."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Gold <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Everything you need to know about starting your journey with precious metals.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

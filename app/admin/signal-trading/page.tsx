@@ -55,7 +55,7 @@ const SignalTrading = () => {
 
       const newMarket = {
         plan: market,
-        id: crypto.randomUUID()
+        id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15)
       };
 
       console.log(newMarket);

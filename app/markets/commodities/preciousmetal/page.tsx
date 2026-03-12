@@ -1,63 +1,126 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/precious metals.jpg'
+import preciousMetalAbout from '@/assets/precious metals.jpg';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { GiBigDiamondRing, GiCrystalWand, GiGoldBar } from 'react-icons/gi';
+import { BsShieldCheck, BsGraphUp, BsLightningCharge } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
-    title: "Why should I invest in precious metals?",
-    subTitle: "Precious metals like gold, silver, and platinum provide stability during economic downturns. CAP VENTURES offers a secure way to invest in these assets, ensuring portfolio diversification and wealth preservation."
+    title: "Why invest in precious metals with Capital Online Ventures?",
+    subTitle: "Precious metals like platinum and palladium offer a unique combination of industrial utility and investment stability. Our platform provides the security and market access needed to diversify your portfolio effectively."
   },
   {
-    title: "Which precious metals are the best investments?",
-    subTitle: "Gold is the most stable, silver has high industrial use, and platinum and palladium are in demand for automotive and tech industries. CAP VENTURES provides access to all these metals to suit various investment strategies."
+    title: "What are the primary uses for platinum and palladium?",
+    subTitle: "Beyond their value as investment assets, these metals are critical in the automotive, chemical, and technology sectors, ensuring sustained global demand through various economic cycles."
   },
   {
-    title: "How does CAP VENTURES make investing in precious metals easier?",
-    subTitle: "Our platform simplifies investing by offering real-time market data, secure transactions, and expert insights, allowing you to buy and sell precious metals with confidence."
+    title: "How do you ensure the security of metal investments?",
+    subTitle: "We provide institutional-grade trading environments with professional-tier security protocols, ensuring that your digital exposure to physical assets is always protected."
+  },
+  {
+    title: "What is the correlation between precious metals and the broader market?",
+    subTitle: "Precious metals often have a low or inverse correlation with traditional equities, making them an excellent hedge during periods of high market volatility or economic uncertainty."
+  },
+];
+
+const features = [
+  {
+    icon: <GiBigDiamondRing />,
+    title: "Rare Utility",
+    description: "Invest in metals that are as industrially vital as they are rare, ensuring a unique value proposition for your portfolio."
+  },
+  {
+    icon: <BsShieldCheck />,
+    title: "Wealth Preservation",
+    description: "Harness the historical power of precious metals to safeguard your capital against currency devaluation and inflation."
+  },
+  {
+    icon: <BsGraphUp />,
+    title: "Market Diversification",
+    description: "Balance your traditional stock and bond holdings with assets that often move independently of broader financial markets."
   }
 ];
 
-
-export default function RetirementPage  () {
+export default function PreciousMetalsPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Secure Your Wealth with <span className="text-blue-600">Precious Metals</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Regarded as the ultimate stores of value for centuries, precious metals provide a foundational layer of security for the modern investor. At Capital Online Ventures, we make it seamless to access these timeless assets.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Institutional Grade", desc: "Access the same market conditions and execution quality as professional commodity traders." },
+                  { title: "Global Demand", desc: "Capitalize on the essential role of platinum and palladium in the world's most advanced industries." },
+                  { title: "Inflation Guard", desc: "Maintain your purchasing power with assets that have a proven track record of wealth preservation." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center mt-1">
+                      <BsShieldCheck size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">  Secure Wealth with Precious Metals
-</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col">
-            <p>
-            {`Precious metals such as platinum, and palladium have long been regarded as stores of value. In times of economic uncertainty, they provide financial security and act as hedges against inflation. CAP VENTURES offers investors a seamless way to gain exposure to these valuable assets with expert market analysis.`}
-
-            </p>
-            <br />
-            <p>
-            {`Unlike paper currencies, precious metals maintain their value over time, making them an excellent portfolio diversifier. Whether for wealth preservation or capital appreciation, investing in metals offers stability in volatile markets. CAP VENTURES simplifies the process, allowing you to buy, sell, and hold precious metals with confidence.`}
-
-
-            </p>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={preciousMetalAbout}
+                alt="Precious Metals"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Why Invest in Precious Metals?"
+        subtitle="Discover the stability and growth potential of metals that have stood the test of time and market cycles."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Precious Metals <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Find technical and market clarity for your metal investment strategy.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

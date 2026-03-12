@@ -1,69 +1,125 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/hm-stocks-about.webp'
+import stocksAbout from '@/assets/hm-stocks-about.webp';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { AiOutlineStock, AiOutlineGlobal, AiOutlinePercentage } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "How do I start trading stocks with Capital Online Ventures?",
+    subTitle: "Starting is simple. Register an account, complete your profile, and make an initial deposit. You can then access thousands of global stocks through our professional trading terminals."
   },
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "Are there any commissions on stock trades?",
+    subTitle: "We offer zero-commission trading on a wide range of popular international stocks. This means you only pay the spread, allowing you to maximize your investment returns."
   },
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "Which stock exchanges can I access?",
+    subTitle: "You can trade stocks from major global exchanges including the NYSE, NASDAQ, London Stock Exchange, and more. Our platform provides real-time data and instant execution for all listed companies."
   },
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "Can I earn dividends on my stock positions?",
+    subTitle: "Yes, when you hold long positions in stocks that pay dividends, your account will be credited with the dividend amount. Similarly, for short positions, the dividend amount will be debited."
   },
-]
+];
 
+const features = [
+  {
+    icon: <AiOutlinePercentage />,
+    title: "Zero Commission",
+    description: "Enjoy commission-free trading on thousands of global stocks. Lower costs mean higher potential returns for your portfolio."
+  },
+  {
+    icon: <AiOutlineGlobal />,
+    title: "Global Markets",
+    description: "Access the biggest names in tech, healthcare, and finance from the world's most prestigious stock exchanges."
+  },
+  {
+    icon: <AiOutlineStock />,
+    title: "Fractional Trading",
+    description: "Start small and grow your wealth by trading fractional shares of high-value companies like Apple, Amazon, and Tesla."
+  }
+];
 
-export default function StocksPage  () {
+export default function StocksPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Trade <span className="text-blue-600">Global Stocks</span> with Zero Commission
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Diversify your portfolio with the {"world's"} most successful companies. From tech giants to legacy industries, access the international stock market with ease and precision.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Diverse Options", desc: "Choose from blue-chip stocks, growth companies, and emerging market leaders." },
+                  { title: "Real-Time Analysis", desc: "Access high-level technical tools and market news to inform your strategy." },
+                  { title: "Secure & Regulated", desc: "Trade with peace of mind knowing your investments are handled on a secure platform." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1">
+                      <AiOutlineStock size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Open an account and trade stocks
-</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col gap-6">
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Diversify your portfolio</h3>
-              <p className=" font-medium text-lg">{`with popular names from various global stock markets, like Alphabet, Boeing, McDonald's, Nike and more.`}</p>
-            </div>
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Low and stable spreads</h3>
-              <p className=" font-medium text-lg">with no unnecessary delays.Take advantage of our tight spreads and trade the stock market.³</p>
-            </div>
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Enjoy superior execution</h3>
-              <p className=" font-medium text-lg">on popular trading platforms like MetaTrader 4 and 5, as well as our proprietary Exness Web Terminal and Exness Trade App.</p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={stocksAbout}
+                alt="Stock Trading"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Elevate Your Stock Portfolio"
+        subtitle="Access advanced trading tools and industry-leading conditions to trade the stocks of the world's biggest brands."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Stock Trading <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Find answers to the most common questions about investing in stocks through our platform.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

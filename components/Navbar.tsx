@@ -2,367 +2,284 @@
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { CgMenu } from 'react-icons/cg';
-// import TradingViewTicker from './Dashboard/Widgets/TradingViewTicker';
-import { FaChevronDown } from 'react-icons/fa';
+import { CgMenuRight } from 'react-icons/cg';
+import { FaChevronDown, FaFire, FaChartLine, FaWheatAwn, FaOilCan, FaLeaf } from 'react-icons/fa6';
+import { BsArrowRightShort, BsCurrencyExchange } from 'react-icons/bs';
 import Button from './Global/Button';
-// import Logo from './Global/Logo';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BiX } from 'react-icons/bi';
 import Logo from './Global/Logo';
 
-
-const links: LinkProps [] = [
-  // { name: 'home', url: '/' },
-  { name: 'Why Us', url: '/whyus' },
-  // { name: 'service', url: '/contact' },
-  { name: 'contact', url: '/contact' },
-  {
-    name: 'Markets',
-    url: '#',
-    children: [
-      { name: 'Forex', url: '/markets/forex'},  
-      { name: 'Crypto', url: '#', children: [
-        { name: 'Bitcoin', url: '/markets/crypto/bitcoin' },
-        { name: 'Etherum', url: '/markets/crypto/etherum' },
-        // { name: 'Binance Coin', url: '/markets/crypto/binance coin' },
-        // { name: 'Litecoin', url: '/markets/crypto/litecoin' },
-      ]
-      },  
-      {
-        name: 'Stocks',
-        url: '/markets/stocks',
-      },
-      { 
-        name: 'Agriculture', 
-        url: '#', 
-        children: [
-          { name: 'Animal livestock', url: '/markets/agriculture/livestock' },
-          { name: 'Farm Land', url: '/markets/agriculture/farmland' },
-          { name: 'Poultry', url: '/markets/agriculture/poultry' },
-        ]
-      },
-      { 
-        name: 'Retirement Plan', 
-        url: '/markets/retirements', 
-        // children: [
-        //   { name: 'Animal livestock', url: '/services/markets/animal livestock' },
-        //   { name: 'Fishery', url: '/services/markets/fishery' },
-        // ]
-      },
-      { 
-        name: 'Commodities', 
-        url: '#', 
-        children: [
-          { name: 'Gold', url: '/markets/commodities/gold' },
-          { name: 'Silver', url: '/markets/commodities/silver' },
-          { name: 'Crude Oil', url: '/markets/commodities/crudeoil' },
-          { name: 'Precious Metal', url: '/markets/commodities/preciousmetal' },
-          { name: 'Maganeses', url: '/markets/commodities/maganese' },
-          { name: 'Marijuana', url: '/markets/commodities/marijuana' },
-          { 
-            name: 'Energy', 
-            url: '#', 
-            children: [
-              { name: 'Gasoline', url: '/markets/commodities/energy/gasoline' },
-              // { name: 'Fuel', url: '/markets/commodities/energy/fuel' },
-              { name: 'lithium', url: '/markets/commodities/energy/lithium' },
-            ]
-            },
-        ]
-      },
-    ],
-  },
-];
-
-  // Recursive Menu Component
-  const DropdownMenu = ({ items, parentKey = '', handleTogleDropdown, openDropdowns, browserWidth, handleToggleNavbar }: DropdownMenuProps) => {
-    return (
-    <AnimatePresence>
-      {items && (
-        <motion.ul
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10}}
-          transition={{ duration: 0.3 }}
-          className={`relative text-sm left-0 mt-2 w-full max-h-full  text-white rounded-md items-start  flex  flex-col padding duration-500 `}
-        >
-          {items.map((item, index) => {
-            const key = `${parentKey}-${index}`;
-
-            return (
-              <li key={key} className='text-sm  text-white font-semibold capitalize flex flex-col justify-between w-full p-3'>
-                {item.children  ? (
-                  <>
-                    <button
-                      onClick={() => {
-                         handleTogleDropdown(key)
-                      }}
-                      className='text-sm text-white font-semibold capitalize flex items-center justify-between w-full p-3 hover:bg-gray-50 hover:text-gray-800 rounded-md ease-in-out transition-all duration-150'
-                    >
-                      {item.name}
-                      <motion.span
-                        animate={{ rotate: openDropdowns[key] === true ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <FaChevronDown size={12} />
-                      </motion.span>
-                    </button>
-
-                    {openDropdowns[key] && <DropdownMenu handleToggleNavbar={handleToggleNavbar} items={item.children} parentKey={key} handleTogleDropdown={handleTogleDropdown} openDropdowns={openDropdowns} browserWidth={browserWidth} />}
-                  </>
-                ) : (
-                  <Link onClick={handleToggleNavbar}  href={item.url} className='text-sm text-white font-semibold capitalize flex justify-between w-full p-3 hover:bg-gray-50 hover:text-gray-800 rounded-md ease-in-out transition-all duration-150'>
-                    {item.name}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
-        </motion.ul>
-      )}
-    </AnimatePresence>
-  );
-  }
-  interface DropdownMenuProps {
-    items: LinkProps[];
-    parentKey?: string;
-    handleTogleDropdown: (key: string) => void;
-    openDropdowns: OpenDropdownProps;
-    browserWidth?: number;
-    handleToggleNavbar: () => void
-  }
-
-  // interface NavbarProps {
-  //   showMobileNav: boolean;
-  //   setShowMobileNav: (value: boolean) => void;
-  //   openDropdown: any;
-  //   setOpenDropdown: (value: any) => void;
-  // }
-
-  type LinkProps  = {
-    name: string;
-    url: string;
-    children?:  LinkProps[] | undefined;
-  }
-
-  
-  // interface NavbarProps {
-  //   links: LinkProps[];
-  // }
-
- type OpenDropdownProps = {
-  [key: string | number]: boolean;
+interface MarketItem {
+  name: string;
+  url: string;
+  icon?: React.ReactNode;
+  description?: string;
 }
+
+interface MarketCategory {
+  title: string;
+  items: MarketItem[];
+}
+
+const marketCategories: MarketCategory[] = [
+  {
+    title: "Financial Instruments",
+    items: [
+      { name: 'Forex Trading', url: '/markets/forex', icon: <BsCurrencyExchange className="text-blue-500" />, description: "Major and exotic currency pairs." },
+      { name: 'Stock Market', url: '/markets/stocks', icon: <FaChartLine className="text-emerald-500" />, description: "Blue-chip stocks and global indices." },
+      { name: 'Retirement Plans', url: '/markets/retirements', icon: <FaLeaf className="text-indigo-500" />, description: "Secure long-term growth strategies." },
+    ]
+  },
+  {
+    title: "Digital Assets",
+    items: [
+      { name: 'Bitcoin Market', url: '/markets/crypto/bitcoin', icon: <FaFire className="text-orange-500" />, description: "Direct exposure to Digital Gold." },
+      { name: 'Ethereum Network', url: '/markets/crypto/etherum', icon: <FaFire className="text-indigo-600" />, description: "Smart contracts and DeFi assets." },
+      { name: 'Crypto Overview', url: '/markets/crypto', icon: <BsCurrencyExchange className="text-blue-400" />, description: "Broad market digital asset sector." },
+    ]
+  },
+  {
+    title: "Commodities & Energy",
+    items: [
+      { name: 'Gold & Silver', url: '/markets/commodities/gold', icon: <FaChartLine className="text-yellow-500" />, description: "Spot Gold, Silver, and Precious Metals." },
+      { name: 'Energy (Gas & Oil)', url: '/markets/commodities/energy/gasoline', icon: <FaOilCan className="text-slate-500" />, description: "Crude Oil, Gasoline, and Lithium." },
+      { name: 'Industrial Metals', url: '/markets/commodities/maganese', icon: <FaChartLine className="text-blue-400" />, description: "Manganese and raw industrial materials." },
+    ]
+  },
+  {
+    title: "Agricultural Markets",
+    items: [
+      { name: 'Animal Livestock', url: '/markets/agriculture/livestock', icon: <FaWheatAwn className="text-amber-600" />, description: "Sustainable cattle and sheep farming." },
+      { name: 'Productive Farmland', url: '/markets/agriculture/farmland', icon: <FaWheatAwn className="text-emerald-600" />, description: "Direct investment in fertile lands." },
+      { name: 'Poultry & Marijuana', url: '/markets/agriculture/poultry', icon: <FaLeaf className="text-green-600" />, description: "Poultry cycles and legal cannabis." },
+    ]
+  }
+];
 
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<OpenDropdownProps>({});
-  const [browserWidth, setBrowserWidth] = useState(0);
-
+  const [showMarkets, setShowMarkets] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setBrowserWidth(window.innerWidth);
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  }, [])
-  
-
-
-  // const toggleDropdown = (index: any) => {
-  //   console.log(index, openDropdown);
-  //   setOpenDropdown(openDropdown === index ? null : index);
-  // };
-
-  const toggleDropdown = (key: string | number) => {
-    setOpenDropdown((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  console.log(openDropdown)
-  };
-
-  const toggleMobileNav = () => setShowMobileNav((prev) => !prev);
-
-
+  const toggleMobileNav = () => setShowMobileNav(!showMobileNav);
 
   return (
-
-         <header className="p-6 w-[95%] md:bg-primary-5 flex items-center justify-between lg:px-8 fixed top-4 z-50 max-w-4xl rounded-full left-1/2 -translate-x-1/2 bg-gray-900/50 backdrop-blur-lg"> 
-      {showMobileNav &&  <div className='absolute sm:hidden top-0 left-0 h-screen w-screen bg-primary z-5 inset-0 opacity-50'></div> }
-   
-      <nav className='flex items-center justify-between w-full gap-4 md:gap-6 z-10'>
-        <Link href='/'>
-          <Logo width={120} height={120} />
-        </Link>
-
-        <ul className='padding items-center gap-16 hidden sm:flex'>
-          {links.map((link, index) => {
-
-            return <li key={link.name} className='relative w-fit'>
-              {link.children ? (
-                <>
-               <button
-                  onClick={() => toggleDropdown(`${index}`)}
-                  className='text-sm text-white font-semibold gap-3 flex justify-between w-full p-3 hover:bg-gray-50 hover:text-gray-800 rounded-md items-center ease-in-out transition-all duration-150'
-                >
-                  {link.name} 
-                <motion.span
-                  animate={{ rotate: openDropdown[`${index}`] === true ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FaChevronDown size={12} />
-                </motion.span>
-                </button>
-                { openDropdown[`${index}`] === true && (
-                  <div 
-                  className='border-t-2 absolute z-10 p-2 bg-gray-950 shadow-xl rounded  text-sm max-h-[450px] overflow-hidden overflow-y-auto'
-                  style={{
-                    bottom: "auto", 
-                    top: "48px", 
-                    minWidth: "450px", 
-                    left: "50%", 
-                    transform: "translateX(-25%)"
-                  }}
-                  >
-                    <DropdownMenu
-                      items={link.children}
-                      parentKey={`${index}`}
-                      handleTogleDropdown={toggleDropdown}
-                      // setTogleDropDown = {}
-                      handleToggleNavbar={toggleMobileNav}
-                      openDropdowns={openDropdown}
-                      browserWidth={browserWidth}
-                      />
-                    
-
-                  </div>
-
-                )}
-              </>
-              
-              ) : 
-              (
-                <Link href={link.url} className='text-white font-medium capitalize'>
-                  {link.name}
-                </Link>
-              )}
-           
-            </li>
-          })}
-        </ul>
-
-
-        <div className='items-center gap-3 hidden sm:flex'>
-          <Link href='/auth/login'>
-            <Button color='white' variant='outlined'>Login</Button>
+    <>
+      <header 
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500 ${
+          scrolled ? 'top-4' : 'top-6'
+        }`}
+      >
+        <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-500 ${
+          scrolled 
+            ? 'bg-gray-900/80 backdrop-blur-xl border-gray-800 shadow-2xl' 
+            : 'bg-gray-950/40 backdrop-blur-md border-white/5'
+        }`}>
+          {/* Logo */}
+          <Link href='/' className="flex-shrink-0">
+            <Logo width={130} height={130} />
           </Link>
-          <Link href='/auth/register'>
-            <Button color='primary_2'>Create Account</Button>
-          </Link>
-        </div>
 
-        <button
-          aria-label='navbar toggle Button'
-          onClick={toggleMobileNav}
-          className='block sm:hidden text-gray-50 p-2  duration-500 border-[1px] rounded-md'
-        >
-          <CgMenu className='text-2xl' />
-        </button>
-      </nav>
-
-        
-      <AnimatePresence>
-      {showMobileNav && (
-
-      <div className='relative w-full flex items-center justify-between flex-col z-50 px-2'>
-        <motion.ul
-        initial={{ x: '-100%', opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: '-100%', opacity: 0 }}
-        transition={{ duration: 0.123 }}
-        className={` fixed text-sm top-0 left-0 w-[80%] h-screen bg-opacity-50 z-50 padding items-start flex sm:hidden flex-col bg-primary duration-500 p-2 overflow-y-auto  overflow-x-hidden`}
-        >
-        <div className='flex justify-between w-full mb-4 my-2'>
-          <Logo width={150} height={150} />
-          <button
-            aria-label='navbar toggle Button'
-            onClick={toggleMobileNav}
-            className='block sm:hidden text-gray-50 p-2 z-30  duration-500 border-[1px] rounded-md self-end'
-          >
-            <BiX className='text-2xl' />
-          </button>      
-        </div>
-        {links.map((link, index) => {
-          const key =  `${index}`
-          return <li key={key} className='p-3 w-full'>
-            {link.children ? (
-              <>
-                
-                <button
-                  onClick={() => toggleDropdown(key)}
-                  className='text-sm text-white font-semibold capitalize flex justify-between w-full p-3 hover:bg-gray-50 hover:text-gray-800 rounded-md items-center ease-in-out transition-all duration-150'
-                  >
-                  {link.name} 
-                <motion.span
-                  animate={{ rotate: openDropdown[key] === true ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FaChevronDown size={12} />
-                </motion.span>
-                </button>
-                {openDropdown[key] && (
-                  <DropdownMenu
-                  items={link.children}
-                  parentKey={key}
-                  handleTogleDropdown={toggleDropdown}
-                  openDropdowns={openDropdown}
-                  handleToggleNavbar={toggleMobileNav}
-                  />
-                )}
-              </>
-            ) : (
-              <Link onClick={() => setShowMobileNav((prev) => !prev)} href={link.url} className='text-sm text-white font-semibold capitalize flex justify-between w-full p-3 hover:bg-gray-50 hover:text-gray-800 rounded-md ease-in-out transition-all duration-150'>
-                {link.name}
+          {/* Desktop Links */}
+          <ul className='hidden lg:flex items-center gap-2'>
+            <li>
+              <Link href="/whyus" className="px-5 py-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors">
+                Why Us
               </Link>
-            )}
-          </li>
-      })}
+            </li>
+            <li 
+              onMouseEnter={() => setShowMarkets(true)}
+              onMouseLeave={() => setShowMarkets(false)}
+              className="relative"
+            >
+              <button className={`flex items-center gap-2 px-5 py-2 text-sm font-semibold transition-all ${
+                showMarkets ? 'text-blue-400' : 'text-gray-300 hover:text-white'
+              }`}>
+                Markets
+                <FaChevronDown className={`text-[10px] transition-transform duration-300 ${showMarkets ? 'rotate-180' : ''}`} />
+              </button>
 
-      <div className='flex w-full gap-2 justify-end bg-gray-950 my-6 p-3 rounded-xl'>
-        <Link className=' w-full' href={`/auth/register`}>
-          <Button
-            variant='fill'
-            color='primary_2'
-            size='large'
-          >
-            Register
-          </Button>
-        </Link>
-        <Link className=' w-full' href={`/auth/login`}>
-          <Button
-            variant='outlined'
-            color='primary_2'
-            size='large'
-          >
-            Login
-          </Button>
-        </Link>
-      </div>      
-      </motion.ul>
+              {/* Mega Menu Dropdown */}
+              <AnimatePresence>
+                {showMarkets && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    transition={{ duration: 0.3, ease: "circOut" }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                  >
+                    <div className="bg-gray-900 border border-gray-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] p-8 min-w-[850px] backdrop-blur-2xl">
+                      <div className="grid grid-cols-4 gap-10">
+                        {marketCategories.map((cat, i) => (
+                          <div key={i} className="space-y-6">
+                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 px-1">
+                              {cat.title}
+                            </h4>
+                            <div className="space-y-1">
+                              {cat.items.map((item, j) => (
+                                <Link 
+                                  key={j} 
+                                  href={item.url}
+                                  className="group flex gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300"
+                                >
+                                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center group-hover:scale-110 group-hover:bg-gray-700 transition-all">
+                                    {item.icon}
+                                  </div>
+                                  <div className="pt-1">
+                                    <p className="text-sm font-bold text-gray-200 group-hover:text-blue-400 transition-colors">
+                                      {item.name}
+                                    </p>
+                                    <p className="text-[11px] text-gray-500 font-medium leading-tight mt-0.5">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-8 pt-8 border-t border-gray-800 flex items-center justify-between">
+                        <p className="text-xs text-gray-400 font-medium">Explore 500+ instruments with institutional conditions.</p>
+                        <Link href="/markets" className="flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors">
+                          View All Markets <BsArrowRightShort size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+            <li>
+              <Link href="/contact" className="px-5 py-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors">
+                Contact
+              </Link>
+            </li>
+          </ul>
 
-      </div>
-      )}
-    </AnimatePresence>
-      {/* <TradingViewTicker /> */}
+          {/* Desktop Auth */}
+          <div className='hidden lg:flex items-center gap-3'>
+            <Link href='/auth/login'>
+              <button className="px-6 py-2.5 text-sm font-bold text-gray-300 hover:text-white transition-colors">
+                Login
+              </button>
+            </Link>
+            <Link href='/auth/register'>
+              <Button color='primary_2' className="!rounded-full shadow-lg shadow-blue-500/20">
+                Get Started
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={toggleMobileNav}
+            className='lg:hidden flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all text-white'
+          >
+            <CgMenuRight className='text-xl' />
+          </button>
+        </nav>
       </header>
-    );
+
+      {/* Mobile Sidebar Redesign */}
+      <AnimatePresence>
+        {showMobileNav && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMobileNav}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden"
+            />
+
+            {/* Sidebar Content */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 w-[85%] max-w-[320px] h-full bg-gray-950 border-r border-white/5 z-[70] lg:hidden flex flex-col pt-8"
+            >
+              <div className="px-8 flex items-center justify-between mb-12">
+                <Logo width={120} height={120} />
+                <button 
+                  onClick={toggleMobileNav}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white"
+                >
+                  <BiX size={24} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-6 space-y-8">
+                <div className="space-y-1">
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-600 px-2 mb-4">Navigation</h4>
+                  <Link 
+                    href="/whyus" 
+                    onClick={toggleMobileNav}
+                    className="flex items-center justify-between p-4 rounded-2xl bg-white/5 text-gray-200 font-bold hover:bg-white/10 transition-all"
+                  >
+                    Why Us <BsArrowRightShort size={24} className="text-gray-500" />
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    onClick={toggleMobileNav}
+                    className="flex items-center justify-between p-4 rounded-2xl bg-white/5 text-gray-200 font-bold hover:bg-white/10 transition-all"
+                  >
+                    Contact Support <BsArrowRightShort size={24} className="text-gray-500" />
+                  </Link>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-600 px-2">Featured Markets</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {marketCategories.flatMap(c => c.items).slice(0, 6).map((item, i) => (
+                      <Link 
+                        key={i} 
+                        href={item.url} 
+                        onClick={toggleMobileNav}
+                        className="flex items-center gap-4 p-4 rounded-2xl border border-white/5 hover:bg-white/5 transition-all"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gray-900 flex items-center justify-center text-xs">
+                          {item.icon}
+                        </div>
+                        <span className="text-sm font-bold text-gray-300">{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                  <Link href="/markets" onClick={toggleMobileNav} className="block text-center text-xs font-bold text-blue-400 py-2">
+                    Explore All Assets
+                  </Link>
+                </div>
+              </div>
+
+              <div className="p-8 border-t border-white/5 bg-gray-900/50 space-y-3">
+                <Link href='/auth/login' onClick={toggleMobileNav} className="block">
+                  <button className="w-full py-4 rounded-2xl text-sm font-bold text-gray-300 border border-white/10 hover:bg-white/5 transition-all">
+                    Login
+                  </button>
+                </Link>
+                <Link href='/auth/register' onClick={toggleMobileNav} className="block">
+                  <Button color='primary_2' className="w-full !py-4 !rounded-2xl shadow-xl shadow-blue-500/20">
+                    Get Started Now
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
 };
 
 export default Navbar;

@@ -1,68 +1,138 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/hm-crypto-about.png'
+import cryptoAbout from '@/assets/hm-crypto-about.png';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { SiBitcoin, SiEthereum, SiBinance } from 'react-icons/si';
+import { BsShieldLock, BsLightningCharge, BsGlobe } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
     title: "What is blockchain technology, and how does it work?",
-    subTitle: "Blockchain technology is a distributed ledger system where each transaction is verified across multiple computers in a secure way, making it impossible to hack or change.It works by creating a continuous chain of blocks, each containing a record of the previous transaction.The blockchain is secured via a consensus mechanism known as “mining,” where the nodes of the network are incentivized to validate transactions and create new blocks.This makes it virtually impossible for anyone to tamper with the data stored on the blockchain, or to make unauthorized changes. Also, due to its distributed nature, there is no single point of failure.That means if one node goes down, the other nodes will continue to operate without interruption."
+    subTitle: "Blockchain is a decentralized digital ledger that records transactions across many computers so that the record cannot be altered retroactively. This ensures transparency and security without the need for a central authority."
   },
   {
-    title: "How do i decide the best cryptocurrencies to trade in the crypto market?",
-    subTitle: "When deciding which cryptocurrencies to trade, it is important to consider a range of factors. These include volatility, liquidity, market capitalization, and technological features.Traders should also research the development team behind the coin or token and consider their past successes with other projects.It's also very important to keep up with crypto market news when trying to identify crypto trading opportunities. And finally, always conduct thorough fundamental and technical analysis of cryptocurrency prices over several time frames before deciding when to enter or exit a trade"
+    title: "How do I decide which cryptocurrencies to trade?",
+    subTitle: "Consider factors like market capitalization, liquidity, and the underlying technology. We provide real-time market insights and historical data to help you make informed decisions in the dynamic crypto market."
   },
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "Can I trade crypto 24/7?",
+    subTitle: "Yes, unlike traditional stock markets, the cryptocurrency market is open 24 hours a day, 7 days a week, 365 days a year. You can trade anytime opportunity strikes."
   },
   {
-    title: "What are the most popular currency pairs to trade?",
-    subTitle: "The most popular currency pairs to trade are the ones that offer the most liquidity - i.e. the ones that people trade the most. These include FX majors like AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, and USDJPY. These currency trading pairs are all available to trade completely swap-free at Exness, so you can hold your positions for longer at no extra charge. Other popular currency pairs that traders like to add to their portfolios are FX minors. These include AUDCAD, CADCHF, EURAUD, GBPCHF, and more. Most FX minors are also available with no overnight charges at Exness. You can see exactly which minors are included in the swap-free program in the instruments table on this page."
+    title: "How secure is crypto trading on your platform?",
+    subTitle: "We employ industry-leading security protocols, including multi-factor authentication and cold storage for assets, to ensure your crypto investments are always protected."
   },
-]
+];
 
+const features = [
+  {
+    icon: <BsShieldLock />,
+    title: "Secure Trading",
+    description: "Benefit from advanced encryption and multi-layered security protocols designed to keep your digital assets safe at all times."
+  },
+  {
+    icon: <BsLightningCharge />,
+    title: "Lightning-Fast Execution",
+    description: "Never miss a market move. Our high-performance trading engine ensures your orders are executed in milliseconds."
+  },
+  {
+    icon: <BsGlobe />,
+    title: "24/7 Global Access",
+    description: "Trade top cryptocurrencies any time of the day or night. The crypto market never sleeps, and neither does our platform."
+  }
+];
 
-export default function CryptoPage  () {
+export default function CryptoPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Unlock the Power of <span className="text-blue-600">Digital Assets</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Step into the future of finance. Trade the {"world's"} most popular cryptocurrencies with competitive spreads and no overnight charges on key pairs.
+              </p>
+              
+              <div className="flex flex-wrap gap-8 py-4">
+                <div className="flex items-center gap-3 text-gray-700 bg-gray-100 px-6 py-3 rounded-2xl font-bold">
+                  <SiBitcoin className="text-[#F7931A] text-2xl" /> Bitcoin
+                </div>
+                <div className="flex items-center gap-3 text-gray-700 bg-gray-100 px-6 py-3 rounded-2xl font-bold">
+                  <SiEthereum className="text-[#627EEA] text-2xl" /> Ethereum
+                </div>
+                <div className="flex items-center gap-3 text-gray-700 bg-gray-100 px-6 py-3 rounded-2xl font-bold">
+                  <SiBinance className="text-[#F3BA2F] text-2xl" /> BNB
+                </div>
+              </div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Open an account and trade crypto</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col gap-6">
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Access the growing crypto market</h3>
-              <p className=" font-medium text-lg">through derivatives and enjoy the ability to capitalize on crypto price movements without needing to own the underlying asset.</p>
-            </div>
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Trade all available cryptocurrencies</h3>
-              <p className=" font-medium text-lg">completely swap-free and hold yourcrypto trading positions at no extra cost.</p>
-            </div>
-            <div className=" w-full space-y-2">
-              <h3 className=" font-medium text-2xl">Leverage proprietary trading features</h3>
-              <p className=" font-medium text-lg">to strengthenyour positions and give your strategy a unique advantage in a dynamic market.</p>
-            </div>
+              <div className="space-y-6">
+                {[
+                  { title: "Zero Swap Fees", desc: "Hold your crypto positions for as long as you want without any overnight charges." },
+                  { title: "Advanced Charting", desc: "Utilize professional-grade technical analysis tools to perfect your timing." },
+                  { title: "Instant Withdrawals", desc: "Access your profits quickly with our streamlined payment systems." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mt-1">
+                      <BsLightningCharge size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={cryptoAbout}
+                alt="Crypto Trading"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Why Trade Crypto with Us?"
+        subtitle="Experience the best of traditional trading combined with the innovation of digital assets."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Cryptocurrency <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Get the technical clarity you need to navigate the world of digital finance.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

@@ -1,68 +1,130 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/etherum.jpg'
+import ethereumAbout from '@/assets/etherum.jpg';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { SiEthereum } from 'react-icons/si';
+import { BsLightningCharge, BsShieldCheck, BsLayers } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
     title: "Why should I invest in Ethereum?",
-    subTitle: "Ethereum is the backbone of decentralized finance (DeFi) and blockchain applications. Its continued adoption and technological advancements, like the Ethereum 2.0 upgrade, make it a strong long-term investment with significant growth potential."
+    subTitle: "Ethereum is more than just a currency; it's the foundation for decentralized finance (DeFi), NFTs, and smart contracts. Its widespread adoption and continuous technological evolution make it a high-potential asset."
   },
   {
-    title: "How does CAP VENTURES help me invest in Ethereum?",
-    subTitle: "CAP VENTURES simplifies Ethereum investment by providing a secure and user-friendly platform. We offer expert insights, risk management strategies, and diversified investment options to help maximize returns while minimizing volatility."
+    title: "How does Capital Online Ventures help me invest in Ethereum?",
+    subTitle: "We provide a secure, institutional-grade platform with advanced trading tools, low latency, and competitive conditions to help you capitalize on Ethereum's market movements."
   },
   {
     title: "Is Ethereum a safe investment?",
-    subTitle: "While Ethereum is a volatile asset like all cryptocurrencies, its strong use cases and widespread adoption make it one of the more stable digital assets. With proper risk management, it can be a valuable addition to an investment portfolio."
+    subTitle: "While all digital assets carry risk, Ethereum's deep liquidity and massive developer ecosystem make it one of the most established and reliable projects in the blockchain space."
   },
   {
-    title: "Can I earn passive income from Ethereum?",
-    subTitle: "Yes! Ethereum staking allows investors to earn rewards by participating in network validation. CAP VENTURES provides opportunities for Ethereum staking, enabling passive income while holding your investment."
+    title: "Can I earn passive income with Ethereum?",
+    subTitle: "Yes, our platform supports Ethereum staking and other DeFi-integrated opportunities, allowing you to generate yield on your holdings while participating in the network's security."
   },
   {
     title: "What is the future outlook for Ethereum?",
-    subTitle: "Ethereum’s transition to Ethereum 2.0 improves scalability, security, and sustainability, making it a promising asset for long-term growth. Its role in DeFi, NFTs, and smart contracts ensures continued demand and innovation."
+    subTitle: "With the transition to Proof of Stake and ongoing scalability upgrades (Layer 2s), Ethereum is positioned to become the settlement layer for the global digital economy."
   }
 ];
 
+const features = [
+  {
+    icon: <BsLayers />,
+    title: "Smart Contract Power",
+    description: "Harness the power of the world's leading programmable blockchain to build and interact with the future of decentralized applications."
+  },
+  {
+    icon: <BsLightningCharge />,
+    title: "High Performance",
+    description: "Experience low-latency execution and deep liquidity, essential for professional trading in the dynamic Ethereum market."
+  },
+  {
+    icon: <BsShieldCheck />,
+    title: "Global Security",
+    description: "Protect your assets with multi-signature security and institutional-grade custody solutions, ensuring absolute peace of mind."
+  }
+];
 
-export default function EtherumPage  () {
+export default function EthereumPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Empower Your Portfolio with <span className="text-blue-600">Ethereum</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Ethereum is more than just a cryptocurrency—it’s a decentralized platform powering the next generation of financial innovation. At Capital Online Ventures, we provide seamless access to the Ethereum ecosystem.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "DeFi Frontier", desc: "Access the backbone of decentralized finance and global innovation." },
+                  { title: "Institutional Grade", desc: "Trade with confidence on a platform designed for professional standards." },
+                  { title: "Staking Opportunities", desc: "Participate in network security and earn rewards on your ETH holdings." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1">
+                      <SiEthereum size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-       <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-         <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Tap into the Future of Digital Finance with Ethereum</h2>
-         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-           <div className=" flex flex-col">
-             <p>
-               {`Ethereum is more than just a cryptocurrency—it’s a decentralized platform powering smart contracts, decentralized finance (DeFi), and blockchain-based applications. Investing in Ethereum offers exposure to one of the most innovative and rapidly growing digital assets in the world. At CAP VENTURES, we simplify Ethereum investment, ensuring seamless access to this high-potential asset while offering expert insights and risk management strategies.`}
-             </p>
-             <br />
-             <p>
-               {`With its widespread adoption and continuous technological upgrades, Ethereum remains a valuable long-term investment. CAP VENTURES provides a secure and user-friendly platform for investors to participate in Ethereum’s growth without navigating the complexities of blockchain technology. Whether you’re looking for short-term gains or long-term asset appreciation, Ethereum investment with CAP VENTURES offers a strategic way to diversify and strengthen your portfolio.`}
- 
-             </p>
-           </div>
- 
-           <div>
-             <Image 
-               src={forexGuy}
-               alt="guy with forex currencies"
-               className=" w-full object-cover"
-             />
-           </div>
- 
-         </div>
-       </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={ethereumAbout}
+                alt="Ethereum Trading"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Unleash Ethereum's Potential"
+        subtitle="Trade the world's most versatile blockchain with a platform that offers superior conditions and tools."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Ethereum <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Deep dive into the technology powering the future of the internet.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

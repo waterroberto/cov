@@ -29,6 +29,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { motion } from 'framer-motion';
 
 interface PageHeroSection {
   [key: string] : {
@@ -269,55 +270,118 @@ export default function MarketsLayout({
   const pathName = usePathname();
   console.log(pathName)
 
-  const currentPage = pages[pathName]
+  const currentPage = pages[pathName] || {
+    name: "markets",
+    title: "Global Markets",
+    subTitle: "Trade the world's most popular financial instruments with Capital Online Ventures.",
+    image: page1,
+    bgColor: "rgb(4, 4, 6)"
+  };
 
   
 
     return (
-      <>
+      <div className="min-h-screen bg-white">
         <Meta />
         <Navbar />
-      {/* <main> */}
-        <div className="">
-            <div 
-              key={currentPage.image.src}
-              style={{background: `linear-gradient(${currentPage.bgColor}, ${currentPage.bgColor})`}}
+        
+        {/* Modern Hero Section */}
+        <section 
+          className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden transition-colors duration-500"
+          style={{ backgroundColor: currentPage.bgColor || '#111827' }}
+        >
+          {/* Animated Background Blobs */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
+            <motion.div 
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.2, 0.1],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-blue-600 blur-[120px] rounded-full"
+            />
+            <motion.div 
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.1, 0.15, 0.1],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }}
+              className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-emerald-600 blur-[120px] rounded-full"
+            />
+          </div>
 
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-left"
               >
-              <section
-                className='padding pt-28 sm:pt-32 lg:pt-24  relative overflow-hidden w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center'
-
-              >
-                <div className=' flex flex-col items-start justify-start text-start gap-5'>
-                  <h2 className={`text-3xl md:text-4xl font-medium ${pages[pathName].name === 'retirements' ? 'text-primary': 'text-white'}`}>
-                    {currentPage.title}
-                  </h2>
-                  <p className={`font-medium lg:text-lg ${pages[pathName].name === 'retirements' ? 'text-primary': 'text-white'}`}>
-                    {currentPage.subTitle}
-                  </p>
-                  <Link href='/auth/register'>
-                    <Button variant='outlined'  size='large' color={`${pages[pathName].name === 'retirements' ? 'dark': 'white'}`}>
-                      Register
+                <h1 className={`text-4xl md:text-6xl font-black mb-8 leading-[1.1] tracking-tight ${currentPage.bgColor.includes('255, 215, 0') || currentPage.name === 'retirements' ? 'text-gray-900' : 'text-white'}`}>
+                  {currentPage.title.split(':').map((part, i) => (
+                    <span key={i} className={i === 1 ? `block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600` : ''}>
+                      {part}{i === 0 && currentPage.title.includes(':') ? ':' : ''}
+                    </span>
+                  ))}
+                  {!currentPage.title.includes(':') && currentPage.title}
+                </h1>
+                <p className={`text-xl mb-10 leading-relaxed font-medium md:max-w-xl ${currentPage.name === 'retirements' ? 'text-gray-700' : 'text-gray-400'}`}>
+                  {currentPage.subTitle}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/auth/register">
+                    <Button variant="fill" size="large" color="primary_2" className="px-10 py-4 text-lg rounded-2xl shadow-xl shadow-blue-500/20">
+                      Get Started
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button variant="outlined" size="large" color={currentPage.name === 'retirements' ? 'dark' : 'white'} className="px-10 py-4 text-lg rounded-2xl">
+                      Talk to Expert
                     </Button>
                   </Link>
                 </div>
+              </motion.div>
 
-                <div>
-                <Image 
-                  src={currentPage.image}
-                  alt="guy with forex currencies"
-                  className=" w-full object-cover"
-                />
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                  <Image 
+                    src={currentPage.image}
+                    alt={currentPage.title}
+                    className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
                 </div>
-              </section>
-
+              </motion.div>
             </div>
+          </div>
+        </section>
 
-          <div className="">{children}</div>
-        </div>
-        <ContactUs title={bannerSection[pathName].title} subTitle={bannerSection[pathName].subTitle} />
-{/*       </main> */}
-      <Footer />
-      </>
+        <main className="relative z-10">
+          {children}
+        </main>
+
+        <ContactUs 
+          title={bannerSection[pathName]?.title || "Ready to Trade?"} 
+          subTitle={bannerSection[pathName]?.subTitle || "Join thousands of traders worldwide and start your journey today."} 
+        />
+        <Footer />
+      </div>
     );
 }

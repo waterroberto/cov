@@ -29,7 +29,7 @@ const ContactForm = () => {
           <div>
             <h3 className='text-3xl font-bold text-gray-900 mb-4'>Contact Information</h3>
             <p className='text-gray-600 text-lg'>
-              Choose the most convenient way to reach us. We're always ready to assist you.
+              {"Choose the most convenient way to reach us. We're always ready to assist you."}
             </p>
           </div>
 
@@ -84,7 +84,7 @@ const ContactForm = () => {
         <div className='lg:col-span-5 bg-white rounded-3xl p-8 md:p-10 shadow-2xl border border-gray-100 order-2'>
           <div className='mb-10'>
             <h3 className='text-2xl font-bold text-gray-900 mb-2'>Send a Message</h3>
-            <p className='text-gray-500'>We'll get back to you shortly.</p>
+            <p className='text-gray-500'>{"We'll get back to you shortly."}</p>
           </div>
           
           <form className='flex flex-col gap-6'>

@@ -1,69 +1,126 @@
+'use client';
 import { AccordionDemo } from "@/components/chad/Accordion";
 import Image from "next/image";
-import forexGuy from '@/assets/hm-poultry-hero.jpg'
+import poultryAbout from '@/assets/hm-poultry.jpg';
+import MarketFeatures from "@/components/Market/MarketFeatures";
+import { GiChicken, GiBigEgg, GiFactory } from 'react-icons/gi';
+import { BsShieldCheck, BsGraphUp, BsLightningCharge } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
-const items = [
+const faqItems = [
   {
-    title: "Is poultry farming a profitable investment?",
-    subTitle: "Yes, poultry farming offers high returns due to the constant demand for eggs and meat. With CAP VENTURES, investors can access professionally managed poultry farms that ensure efficient production, cost control, and market-driven pricing for maximum profitability."
+    title: "Why invest in poultry farming?",
+    subTitle: "Poultry products like eggs and meat are daily essentials with constant global demand. This ensures a reliable and steady revenue stream that is highly resistant to economic downturns."
   },
   {
-    title: "How does CAP VENTURES help investors in poultry farming?",
-    subTitle: "CAP VENTURES handles all aspects of poultry investment, from farm operations to sales distribution. Investors benefit from optimized farming techniques, disease management, and a steady supply chain, ensuring consistent earnings and long-term growth."
+    title: "How does Capital Online Ventures manage poultry farms?",
+    subTitle: "We utilize automated climate-controlled facilities, precision feeding systems, and strict biosecurity protocols. This expert management minimizes mortality rates and maximizes production efficiency."
   },
   {
-    title: "What are the risks associated with poultry farming?",
-    subTitle: "Poultry farming risks include disease outbreaks, feed price fluctuations, and market volatility. However, CAP VENTURES mitigates these risks through advanced biosecurity measures, bulk feed purchasing strategies, and diversified sales channels."
+    title: "What are the key products in this investment?",
+    subTitle: "Returns are generated from the sale of day-old chicks, table eggs, and broiler meat. We operate across the entire value chain to capture maximum profit margins for our investors."
   },
   {
-    title: "What is the expected return on investment for poultry farming?",
-    subTitle: "ROI varies depending on the type of poultry (broilers, layers, or breeders) and market conditions. With CAP VENTURES’s efficient operations, investors can expect steady income from egg production, meat sales, and value-added poultry products."
-  },
-  {
-    title: "Can I invest in poultry farming without prior experience?",
-    subTitle: "Absolutely! CAP VENTURES manages all farming operations on behalf of investors, ensuring they reap the benefits without any hands-on involvement. Our team of experts takes care of everything, from breeding to marketing, while you enjoy passive returns."
+    title: "How do you ensure food safety and animal welfare?",
+    subTitle: "Our farms comply with international health and safety standards. Regular veterinary inspections and high-quality organic feed ensure healthy livestock and premium quality products."
   },
 ];
 
+const features = [
+  {
+    icon: <GiBigEgg />,
+    title: "Daily Cash Flow",
+    description: "Benefit from the fast turnaround time in poultry cycles, providing more frequent profit distributions compared to traditional crop farming."
+  },
+  {
+    icon: <BsShieldCheck />,
+    title: "Biosecurity Focus",
+    description: "Our high-tech facilities are designed to protect against diseases, ensuring a stable and secure environment for your agricultural investment."
+  },
+  {
+    icon: <BsGraphUp />,
+    title: "Scalable Growth",
+    description: "Poultry farming is highly scalable. We continuously expand our operations to meet the growing global demand for high-quality protein."
+  }
+];
 
-
-export default function PoultryPage  () {
+export default function PoultryPage() {
   return (
-    <div>
+    <div className="bg-white">
+      {/* About Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                Accelerate Growth with <span className="text-blue-600">Poultry</span> Investment
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Poultry farming is one of the most dynamic and efficient sectors in modern agriculture. At Capital Online Ventures, we leverage cutting-edge technology to deliver sustainable profits from this high-demand market.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Essential Demand", desc: "Stable income from products that remain daily necessities across all economic cycles." },
+                  { title: "Advanced Automation", desc: "We use AI-monitored feeding and climate systems to ensure optimal growth and minimal waste." },
+                  { title: "Transparent Value Chain", desc: "Follow your investment from hatchery to market with our detailed performance monitoring." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1">
+                      <GiChicken size={14} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-500 font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-      {/* about forx */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-12 space-y-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800 text-center">Profitable Poultry Farming, Managed by Experts</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className=" flex flex-col">
-            <p>
-              {`Poultry farming is one of the fastest-growing agricultural sectors, providing investors with high returns through the production of eggs, meat, and other poultry-based products. At CAP VENTURES, we eliminate the complexities of farm management by offering investors a fully managed poultry investment experience. Our farms utilize advanced biosecurity measures, optimized feeding strategies, and efficient production cycles to ensure maximum profitability.`}
-            </p>
-            <br />
-            <p>
-              {`With rising demand for poultry products worldwide, investing in this sector provides a sustainable and profitable income stream. CAP VENTURES ensures that every aspect of the poultry business, from hatching to market distribution, is expertly handled. By investing with us, you gain access to a lucrative market without the operational challenges, making poultry investment a smart choice for steady and long-term returns.`}
-
-            </p>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
+            >
+              <Image 
+                src={poultryAbout}
+                alt="Poultry Investment"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+            </motion.div>
           </div>
-
-          <div>
-            <Image 
-              src={forexGuy}
-              alt="guy with forex currencies"
-              className=" w-full object-cover"
-            />
-          </div>
-
         </div>
-      </div>
-      
-      {/* frequently asked question */}
-      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto p-4 sm:p-6 md:py-2 grid grid-cols-1 md:grid-cols-[2fr_2fr]">
-        <h2 className=" text-3xl md:text-4xl f text-neutral-800  font-semibold">
-          Frequently asked questions
-        </h2>
-        <AccordionDemo  data={items}/>
-      </div>
+      </section>
+
+      {/* Features Component */}
+      <MarketFeatures 
+        title="Why Invest in Poultry?"
+        subtitle="Enjoy the stability and fast returns of one of the world's most essential agricultural industries."
+        features={features}
+      />
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Poultry <span className="text-blue-600">FAQ</span></h2>
+            <p className="text-lg text-gray-600 font-medium">
+              Get the answers you need to start investing in professional poultry operations.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <AccordionDemo data={faqItems} />
+          </div>
+        </div>
+      </section>
     </div>
-  )
+  );
 }
