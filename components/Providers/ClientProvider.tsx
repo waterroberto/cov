@@ -26,10 +26,6 @@ export default function ClientProvider({
         <UserDataContextProvider>
           <SmartsuppChat />
           <GoogleTranslateProvider>
-             {/* <Script src="//code.tidio.co/kwyr7hbgd3fvtdcsyurhlqox3ckyat97.js" async></Script> */}
-              {/* <Script src="//code.jivosite.com/widget/ZrZNLWDWkz" async></Script> */}
-              {/* <Script src="//code.jivosite.com/widget/BByhPhffJL" async></Script> */}
-
 
             {children}
           </GoogleTranslateProvider>
